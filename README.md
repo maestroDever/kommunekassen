@@ -1,5 +1,8 @@
 # kommunekassen
 
+## Dev Server 
+The development server is running on https://kommunekassen.surge.sh
+
 ## Project setup
 ```
 npm install
