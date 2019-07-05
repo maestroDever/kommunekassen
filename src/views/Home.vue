@@ -2,6 +2,7 @@
   <div class="kommunekassen-home">
     <Header />
     <Body />
+    <Footer />
   </div>
 </template>
 
@@ -9,12 +10,14 @@
 // @ is an alias to /src
 import Header from '@/components/Header.vue'
 import Body from '@/components/Body.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'home',
   components: {
     Header,
-    Body
+    Body,
+    Footer
   }
 }
 </script>

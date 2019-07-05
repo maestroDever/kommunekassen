@@ -24,6 +24,8 @@ export default {
 <style lang="scss" scoped>
   .body {
     margin-top: 60px;
+    margin-right: 25px;
+    margin-left: 25px;
     font-family: "DINNextW01-Bold";
 
     .title {
@@ -41,26 +43,7 @@ export default {
     .action {
       display: flex;
       margin-top: 20px;
+      height: 100px;
     }
   }
 </style>
-
-<style>
-  .button {
-    width: 100%;
-    padding: 10px 15px;
-    margin: 2px;
-    border-radius: 5px;
-    font-family: DINNextW01-Bold;
-    font-size: 16px;
-    background-color: #F0F0F0;
-    color: #231F20;
-    border: none;
-  }
-
-  .button.active {
-    background-color: #231F20;
-    color: #fff;
-  }
-</style>
-
