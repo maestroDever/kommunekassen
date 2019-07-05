@@ -1,17 +1,20 @@
 <template>
   <div class="kommunekassen-home">
     <Header />
+    <Body />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Header from '@/components/Header.vue'
+import Body from '@/components/Body.vue'
 
 export default {
   name: 'home',
   components: {
-    Header
+    Header,
+    Body
   }
 }
 </script>

@@ -20,8 +20,6 @@ export default {
 
 <style lang="scss" scoped>
   .header {
-    width: 566px;
-    text-emphasis: center;
 
     &--top {
       background-color: #231F20;
