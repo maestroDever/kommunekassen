@@ -11,9 +11,8 @@ html, body {
 
 
 .button {
-  width: 100%;
   height: 40px;
-  padding: 10px 15px;
+  padding: 10px 35px;
   margin: 4px;
   border-radius: 8px;
   font-family: DINNextW01-Bold;
@@ -30,4 +29,22 @@ html, body {
 
 .hidden {
   display: none;
+}
+
+/* remove input[type=number] spin buttons */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+/* remove outline on chrome */
+input:focus,
+button:focus {
+  outline: none;
 }
