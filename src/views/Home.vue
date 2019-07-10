@@ -9,7 +9,7 @@
       </div>
       <div class="header--bottom">
         <div class="header--bottom__icon">
-          <i :class="`icon-${pageInfo.icon}`"></i>
+          <i :class="`icon-icon_${pageNames[curPage]}`"></i>
         </div>
       </div>
     </div>
@@ -34,15 +34,19 @@
 
 <script>
 // @ is an alias to /src
+import { mapState, mapGetters } from 'vuex'
 import Action from '@/components/Action.vue'
 import ProgressBar from '@/components/ProgressBar.vue'
 
 export default {
   name: 'home',
-  props: ['pageInfo'],
   components: {
     Action,
     ProgressBar
+  },
+  computed: {
+    ...mapState(['pageNames', 'curPage']),
+    ...mapGetters(['pageInfo'])
   }
 }
 </script>
@@ -101,9 +105,7 @@ export default {
   }
 
   .footer {
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 10px;
+    padding: 10px 15px;
 
     &--buttons {
       display: grid;
@@ -124,7 +126,7 @@ export default {
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
       .cell {
-        margin-right: 1px;
+        margin-right: 2px;
         background-color: red;
       }
 

@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    pageNames: [],
     pageInfo: [],
     blankPage: {
       title: 'waiting',
@@ -34,7 +35,8 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_DATA (state, data) {
-      state.pageInfo = data
+      state.pageInfo = Object.values(data)
+      state.pageNames = Object.keys(data)
     }
   },
   actions: {

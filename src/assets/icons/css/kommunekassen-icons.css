@@ -61,10 +61,10 @@
 .icon-icon_scenarios:before { content: '\e809'; } /* '' */
 .icon-icon_budget_schools:before { content: '\e80a'; } /* '' */
 .icon-icon_city_council:before { content: '\e80b'; } /* '' */
-.icon-icon_projects_1:before { content: '\e80c'; } /* '' */
-.icon-icon_budget_traffic_and_ways:before { content: '\e80d'; } /* '' */
-.icon-icon_projects_2:before { content: '\e80e'; } /* '' */
-.icon-icon_projects_3:before { content: '\e80f'; } /* '' */
+.icon-icon_project_1:before { content: '\e80c'; } /* '' */
+.icon-icon_budget_trafic_and_ways:before { content: '\e80d'; } /* '' */
+.icon-icon_project_2:before { content: '\e80e'; } /* '' */
+.icon-icon_project_3:before { content: '\e80f'; } /* '' */
 .icon-icon_budget_nature_and_climate:before { content: '\e810'; } /* '' */
 .icon-icon_budget_town_hall_and_administration:before { content: '\e811'; } /* '' */
 .icon-icon_projects_4:before { content: '\e812'; } /* '' */

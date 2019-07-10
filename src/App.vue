@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <home :pageInfo="pageInfo" />
+    <home />
   </div>
 </template>
 
 <script>
 import Axios from 'axios'
 import Home from './views/Home.vue'
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   components: { Home },
@@ -17,11 +17,8 @@ export default {
     })
       .then(response => {
         const pageInfo = response.data.expected_input.properties
-        this.setData(Object.values(pageInfo))
+        this.setData(pageInfo)
       })
-  },
-  computed: {
-    ...mapGetters(['pageInfo'])
   },
   methods: {
     ...mapActions(['setData'])
@@ -36,6 +33,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  background-color: #fff;
 }
 
  [class^="icon-"]:before, [class*=" icon-"]:before {

@@ -38,7 +38,7 @@ export default {
 
     .answer-input {
       border: none;
-      border-bottom: #eee solid 3px;
+      border-bottom: #F0F0F0 solid 3px;
       line-height: 2;
       font-size: 36px;
       text-align: center;
