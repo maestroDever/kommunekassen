@@ -1,6 +1,8 @@
 <template>
   <div class="footer--progress-bar">
-    <div class="cell" v-for="n in curPage" :key="n" :style="`background-color: ${colors[n]}`"></div>
+    <div class="cell tooltip" v-for="n in curPage" :key="n" :style="`background-color: ${colors[n]}`">
+      <span class="tooltiptext">{{n}}</span>
+    </div>
   </div>
 </template>
 
