@@ -63,12 +63,15 @@ button:focus {
   color: #000;
   text-align: center;
   border-radius: 3px;
-  padding: 5px 0;
+  padding: 5px 4px;
   position: absolute;
   z-index: 1;
   bottom: 120%;
   left: 50%;
   margin-left: -60px;
+  -webkit-box-shadow: 2px 6px 15px 5px rgba(0,0,0,0.4);
+  -moz-box-shadow: 2px 6px 15px 5px rgba(0,0,0,0.4);
+  box-shadow: 2px 6px 15px 5px rgba(0,0,0,0.4);
 }
 
 .tooltip .tooltiptext::after {
