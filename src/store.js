@@ -58,6 +58,12 @@ export default new Vuex.Store({
   actions: {
     setData (context, data) {
       context.commit('SET_DATA', data)
+    },
+    toNext (context) {
+      context.state.curPage < context.state.pageNames.length && context.state.curPage++
+    },
+    toPrev (context) {
+      context.state.curPage > 0 && context.state.curPage--
     }
   },
   getters: {
