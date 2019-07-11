@@ -13,7 +13,23 @@ export default new Vuex.Store({
     },
     curPage: 0,
     colors: [
-      '#130656', '#584EA1', '#3F8DCC', '#00BED2', '#48B85E', '#82C55D', '#FFCB05', '#FEBE2A', '#F8962A', '#F04E45', '#413B3D', '#413B3D', '#413B3D'
+      '#413B3D', '#130656', '#584EA1', '#3F8DCC', '#00BED2', '#48B85E', '#82C55D', '#FFCB05', '#FEBE2A', '#F8962A', '#F04E45', '#413B3D', '#413B3D', '#413B3D'
+    ],
+    buttons: [
+      { left: null, right: 'Start' },
+      { left: 'Tilbage', right: 'Næste' },
+      { left: 'Tilbage', right: 'Næste' },
+      { left: 'Tilbage', right: 'Næste' },
+      { left: 'Tilbage', right: 'Næste' },
+      { left: 'Tilbage', right: 'Næste' },
+      { left: 'Tilbage', right: 'Næste' },
+      { left: 'Tilbage', right: 'Næste' },
+      { left: 'Tilbage', right: 'Næste' },
+      { left: 'Tilbage', right: 'Næste' },
+      { left: 'Tilbage', right: 'Næste' },
+      { left: 'Tilbage', right: 'Næste' },
+      { left: 'Tilbage', right: 'Næste' },
+      { left: 'Tilbage', right: 'Næste' }
     ],
     icons: [
       'icon_scenarios',
