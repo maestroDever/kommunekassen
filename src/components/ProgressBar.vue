@@ -1,6 +1,11 @@
 <template>
   <div class="footer--progress-bar">
-    <div class="cell tooltip" v-for="n in curPage" :key="n" :style="`background-color: ${colors[n]}`">
+    <div
+      class="cell tooltip"
+      v-for="n in curPage"
+      :key="n"
+      :style="`background-color: ${colors[n]}`"
+    >
       <span class="tooltiptext">{{ pageInfo[n].title }}</span>
     </div>
   </div>

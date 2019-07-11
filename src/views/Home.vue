@@ -7,25 +7,37 @@
           Kan du styre din by og blive genvalgt?
         </span>
       </div>
-      <div class="header--bottom">
+      <div class="header--bottom" :style="`background-color: ${curPageInfo.color}`">
         <div class="header--bottom__icon">
-          <i :class="`icon-icon_${pageNames[curPage]}`"></i>
+          <i :class="`icon-icon_${curPageInfo.pagename}`"></i>
         </div>
       </div>
     </div>
     <div class="body">
       <span class="title">
-        {{ pageInfo.title }}
+        {{ curPageInfo.title }}
       </span>
       <span class="subtitle">
-        {{ pageInfo.description }}
+        {{ curPageInfo.description }}
       </span>
-      <Action :content="pageInfo" />
+      <Action :content="curPageInfo" />
     </div>
     <div class="footer">
       <div class="footer--buttons">
-        <button class="button left hidden">dummy</button>
-        <button class="button right active">Start</button>
+        <button
+          class="button left"
+          v-if="curPageInfo.button.left"
+          @click="gotoPrev"
+        >
+          {{ curPageInfo.button.left }}
+        </button>
+        <button
+          class="button right active"
+          v-if="curPageInfo.button.right"
+          @click="gotoNext"
+        >
+          {{ curPageInfo.button.right }}
+        </button>
       </div>
       <ProgressBar />
     </div>
@@ -34,7 +46,7 @@
 
 <script>
 // @ is an alias to /src
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Action from '@/components/Action.vue'
 import ProgressBar from '@/components/ProgressBar.vue'
 
@@ -45,8 +57,16 @@ export default {
     ProgressBar
   },
   computed: {
-    ...mapState(['pageNames', 'curPage']),
-    ...mapGetters(['pageInfo'])
+    ...mapGetters(['curPageInfo'])
+  },
+  methods: {
+    ...mapActions(['toNext', 'toPrev']),
+    gotoNext () {
+      this.toNext()
+    },
+    gotoPrev () {
+      this.toPrev()
+    }
   }
 }
 </script>
