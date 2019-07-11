@@ -26,13 +26,15 @@
       <div class="footer--buttons">
         <button
           class="button left"
+          :class="curPageInfo.button.class"
           v-if="curPageInfo.button.left"
           @click="gotoPrev"
         >
           {{ curPageInfo.button.left }}
         </button>
         <button
-          class="button right active"
+          class="button right"
+          :class="curPageInfo.button.class"
           v-if="curPageInfo.button.right"
           @click="gotoNext"
         >

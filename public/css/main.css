@@ -28,6 +28,22 @@ html, body {
   color: #fff;
 }
 
+.button.transparent {
+  background-color: transparent;
+}
+
+.button.left {
+  color: rgba(35,31,32,0.5);
+}
+
+.button.right {
+  color: #231F20;
+}
+
+.button.active.right {
+  color: white;
+}
+
 .hidden {
   display: none;
 }
