@@ -67,6 +67,14 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    pageInfo: state => state.pageInfo[state.curPage] || state.blankPage
+    curPageInfo: state => {
+      const page = state.pageInfo[state.curPage]
+      return {
+        ...page,
+        button: state.buttons[state.curPage],
+        color: state.colors[state.curPage],
+        pagename: state.pageNames[state.curPage]
+      } || state.blankPage
+    }
   }
 })
