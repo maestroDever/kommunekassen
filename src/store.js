@@ -7,6 +7,7 @@ export default new Vuex.Store({
   state: {
     pageNames: [],
     pageInfo: [],
+    answers: [],
     blankPage: {
       title: 'waiting',
       description: 'loading...'
@@ -28,8 +29,7 @@ export default new Vuex.Store({
       { left: 'Tilbage', right: 'Næste', class: 'transparent' },
       { left: 'Tilbage', right: 'Næste', class: 'transparent' },
       { left: 'Tilbage', right: 'Næste', class: 'transparent' },
-      { left: 'Tilbage', right: 'Næste', class: 'transparent' },
-      { left: 'Tilbage', right: 'Næste', class: 'transparent' }
+      { left: 'Tilbage', right: 'Beregn', class: 'transparent' }
     ],
     icons: [
       'icon_scenarios',
@@ -60,13 +60,16 @@ export default new Vuex.Store({
       context.commit('SET_DATA', data)
     },
     toNext (context) {
-      context.state.curPage < context.state.pageNames.length && context.state.curPage++
+      context.state.curPage < context.state.pageNames.length - 1 && context.state.curPage++
     },
     toPrev (context) {
       context.state.curPage > 0 && context.state.curPage--
     },
     gotoPage (context, pageNum) {
       context.state.curPage = pageNum
+    },
+    setAnswer (context, ans) {
+      console.log('ans')
     }
   },
   getters: {

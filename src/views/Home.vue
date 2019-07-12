@@ -77,7 +77,6 @@ export default {
 .kommunekassen-home {
   display: grid;
   grid-template-rows: 1fr 300px 1fr;
-  
   .header {
     &--top {
       background-color: #231F20;

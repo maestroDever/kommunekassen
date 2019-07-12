@@ -5,26 +5,38 @@
         class="button"
         v-for="one in content.oneOf"
         :key="`${one.const}-${one.active}`"
-        @click="handleClick(one.const)"
+        @click="handleAnswer(one.const)"
         :class="one.active ? 'active' : ''"
+        ref="actionElement"
       >
         {{ one.title }}
       </button>
     </div>
     <div v-else style="width: 100%">
-      <input type="number" class="answer-input">
+      <input type="number" class="answer-input" @input="handleAnswer(-1)" v-model="answer">
       <span style="display: block; margin: 10px;">mio. kr.</span>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'Action',
   props: ['content'],
+  data () {
+    return {
+      answer: null
+    }
+  },
   methods: {
-    handleClick (id) {
-      console.log(id)
+    ...mapActions(['setAnswer']),
+    handleAnswer (ans) {
+      if (ans >= 0) {
+        this.setAnswer(ans)
+      } else {
+        this.setAnswer(this.answer)
+      }
     }
   }
 }
