@@ -64,6 +64,9 @@ export default new Vuex.Store({
     },
     toPrev (context) {
       context.state.curPage > 0 && context.state.curPage--
+    },
+    gotoPage (context, pageNum) {
+      context.state.curPage = pageNum
     }
   },
   getters: {

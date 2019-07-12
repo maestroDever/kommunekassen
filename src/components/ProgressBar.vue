@@ -5,6 +5,7 @@
       v-for="n in curPage"
       :key="n"
       :style="`background-color: ${colors[n]}`"
+      @click="gotoPage(n)"
     >
       <span class="tooltiptext">{{ pageInfo[n].title }}</span>
     </div>
@@ -12,12 +13,15 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'ProgressBar',
   computed: {
     ...mapState(['curPage', 'colors', 'pageInfo'])
+  },
+  methods: {
+    ...mapActions(['gotoPage'])
   }
 }
 </script>
