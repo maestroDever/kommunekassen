@@ -74,8 +74,11 @@ export default {
 </script>
 
 <style lang="scss">
+.kommunekassen-home {
+  display: grid;
+  grid-template-rows: 1fr 300px 1fr;
+  
   .header {
-
     &--top {
       background-color: #231F20;
       height: 265px;
@@ -157,4 +160,5 @@ export default {
       }
     }
   }
+}
 </style>
