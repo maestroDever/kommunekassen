@@ -81,6 +81,16 @@ export default new Vuex.Store({
         color: state.colors[state.curPage],
         pagename: state.pageNames[state.curPage]
       } || state.blankPage
+    },
+    actionType: state => {
+      if (state.pageInfo.length) {
+        return state.pageInfo[state.curPage].type || null
+      }
+    },
+    actions: state => {
+      if (state.pageInfo.length) {
+        return state.pageInfo[state.curPage].oneOf || null
+      }
     }
   }
 })
