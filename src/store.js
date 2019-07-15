@@ -53,6 +53,15 @@ export default new Vuex.Store({
     SET_DATA (state, data) {
       state.pageInfo = Object.values(data)
       state.pageNames = Object.keys(data)
+    },
+    SET_ANSWER (state, answer) {
+      state.answers[state.curPage] = answer
+    },
+    TO_NEXT (state) {
+      state.curPage < state.pageNames.length - 1 && state.curPage++
+    },
+    TO_PREV (state) {
+      state.curPage > 0 && state.curPage--
     }
   },
   actions: {
@@ -60,16 +69,24 @@ export default new Vuex.Store({
       context.commit('SET_DATA', data)
     },
     toNext (context) {
-      context.state.curPage < context.state.pageNames.length - 1 && context.state.curPage++
+      const curPage = context.state.curPage
+      const curAnswer = context.state.answers[curPage]
+      if (!curAnswer) {
+        alert('Nah')
+        return
+      }
+      context.commit('TO_NEXT')
     },
     toPrev (context) {
-      context.state.curPage > 0 && context.state.curPage--
+      context.commit('TO_PREV')
     },
     gotoPage (context, pageNum) {
       context.state.curPage = pageNum
     },
     setAnswer (context, ans) {
-      console.log(ans)
+      const pagename = context.state.pageNames[context.state.curPage]
+      const answer = new Map([[pagename, ans]])
+      context.commit('SET_ANSWER', Object.fromEntries(answer))
     }
   },
   getters: {
