@@ -1,0 +1,68 @@
+<template>
+  <div class="action">
+    <div v-if="actionType === 'integer'">
+      <button
+        class="button"
+        v-for="action in actions"
+        :key="action.const"
+        @click="handleAnswer(action.const)"
+        ref="actionElement"
+      >
+        {{ action.title }}
+      </button>
+    </div>
+    <div v-else style="width: 100%">
+      <input type="number" class="answer-input" @input="handleAnswer(-1)" v-model="answer">
+      <span style="display: block; margin: 10px;">mio. kr.</span>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapActions, mapGetters } from 'vuex'
+export default {
+  name: 'Action',
+  data () {
+    return {
+      answer: null
+    }
+  },
+  computed: {
+    ...mapGetters(['actionType', 'actions'])
+  },
+  methods: {
+    ...mapActions(['setAnswer']),
+    handleAnswer (ans) {
+      if (ans >= 0) {
+        this.$refs.actionElement.forEach((node, index) => {
+          if (index === ans - 1) {
+            node.classList.add('active')
+          } else {
+            node.classList.remove('active')
+          }
+        })
+        this.setAnswer(ans)
+      } else {
+        this.setAnswer(this.answer)
+      }
+    }
+  }
+}
+</script>
+
+<style lang="scss">
+  .action {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    .answer-input {
+      border: none;
+      border-bottom: #F0F0F0 solid 3px;
+      line-height: 2;
+      font-size: 36px;
+      text-align: center;
+      caret-color: #231F20;
+    }
+  }
+</style>
