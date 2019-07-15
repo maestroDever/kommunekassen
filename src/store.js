@@ -69,7 +69,7 @@ export default new Vuex.Store({
       context.state.curPage = pageNum
     },
     setAnswer (context, ans) {
-      console.log('ans')
+      console.log(ans)
     }
   },
   getters: {

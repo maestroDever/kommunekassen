@@ -6,7 +6,6 @@
         v-for="action in actions"
         :key="action.const"
         @click="handleAnswer(action.const)"
-        :class="action.active ? 'active' : ''"
         ref="actionElement"
       >
         {{ action.title }}
@@ -35,6 +34,13 @@ export default {
     ...mapActions(['setAnswer']),
     handleAnswer (ans) {
       if (ans >= 0) {
+        this.$refs.actionElement.forEach((node, index) => {
+          if (index === ans - 1) {
+            node.classList.add('active')
+          } else {
+            node.classList.remove('active')
+          }
+        })
         this.setAnswer(ans)
       } else {
         this.setAnswer(this.answer)
