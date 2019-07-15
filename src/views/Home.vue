@@ -20,7 +20,7 @@
       <span class="subtitle">
         {{ curPageInfo.description }}
       </span>
-      <Action :content="curPageInfo" />
+      <Action ref="action" />
     </div>
     <div class="footer">
       <div class="footer--buttons">
@@ -64,6 +64,7 @@ export default {
   methods: {
     ...mapActions(['toNext', 'toPrev']),
     gotoNext () {
+      this.$refs.action.answer = ''
       this.toNext()
     },
     gotoPrev () {

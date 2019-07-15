@@ -1,15 +1,15 @@
 <template>
   <div class="action">
-    <div v-if="content.type === 'integer'">
+    <div v-if="actionType === 'integer'">
       <button
         class="button"
-        v-for="one in content.oneOf"
-        :key="`${one.const}-${one.active}`"
-        @click="handleAnswer(one.const)"
-        :class="one.active ? 'active' : ''"
+        v-for="action in actions"
+        :key="action.const"
+        @click="handleAnswer(action.const)"
+        :class="action.active ? 'active' : ''"
         ref="actionElement"
       >
-        {{ one.title }}
+        {{ action.title }}
       </button>
     </div>
     <div v-else style="width: 100%">
@@ -20,14 +20,16 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'Action',
-  props: ['content'],
   data () {
     return {
       answer: null
     }
+  },
+  computed: {
+    ...mapGetters(['actionType', 'actions'])
   },
   methods: {
     ...mapActions(['setAnswer']),
