@@ -56,7 +56,7 @@ export default new Vuex.Store({
       if (localStorage.getItem('answers')) state.answers = JSON.parse(localStorage.getItem('answers'))
     },
     SET_ANSWER (state, answer) {
-      state.answers[state.curPage] = answer
+      Vue.set(state.answers, state.curPage, answer)
       localStorage.setItem('answers', JSON.stringify(state.answers))
     },
     TO_NEXT (state) {
