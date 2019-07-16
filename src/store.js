@@ -62,6 +62,9 @@ export default new Vuex.Store({
     },
     TO_PREV (state) {
       state.curPage > 0 && state.curPage--
+    },
+    GOTO (state, pageNum) {
+      state.curPage = pageNum
     }
   },
   actions: {
@@ -81,7 +84,7 @@ export default new Vuex.Store({
       context.commit('TO_PREV')
     },
     gotoPage (context, pageNum) {
-      context.state.curPage = pageNum
+      context.commit('GOTO', pageNum)
     },
     setAnswer (context, ans) {
       const pagename = context.state.pageNames[context.state.curPage]
@@ -107,6 +110,13 @@ export default new Vuex.Store({
     actions: state => {
       if (state.pageInfo.length) {
         return state.pageInfo[state.curPage].oneOf || null
+      }
+    },
+    curAnswer: state => {
+      if (state.answers.length > state.curPage) {
+        return Object.values(state.answers[state.curPage])[0]
+      } else {
+        return ''
       }
     }
   }

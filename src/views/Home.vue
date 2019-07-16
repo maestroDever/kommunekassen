@@ -64,7 +64,6 @@ export default {
   methods: {
     ...mapActions(['toNext', 'toPrev']),
     gotoNext () {
-      this.$refs.action.answer = ''
       this.toNext()
     },
     gotoPrev () {

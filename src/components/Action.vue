@@ -3,16 +3,17 @@
     <div v-if="actionType === 'integer'">
       <button
         class="button"
-        v-for="action in actions"
+        v-for="(action, index) in actions"
         :key="action.const"
         @click="handleAnswer(action.const)"
         ref="actionElement"
+        :class="index === curAnswer - 1 ? 'active' : ''"
       >
         {{ action.title }}
       </button>
     </div>
     <div v-else style="width: 100%">
-      <input type="number" class="answer-input" @input="handleAnswer(-1)" v-model="answer">
+      <input type="number" class="answer-input" v-model="answer">
       <span style="display: block; margin: 10px;">mio. kr.</span>
     </div>
   </div>
@@ -22,18 +23,22 @@
 import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'Action',
-  data () {
-    return {
-      answer: null
-    }
-  },
   computed: {
-    ...mapGetters(['actionType', 'actions'])
+    ...mapGetters(['actionType', 'actions', 'curAnswer']),
+    answer: {
+      get () {
+        return this.curAnswer
+      },
+      set (newVal) {
+        this.setAnswer(newVal)
+        // this.pp = newVal
+      }
+    }
   },
   methods: {
     ...mapActions(['setAnswer']),
     handleAnswer (ans) {
-      if (ans >= 0) {
+      if (this.actionType === 'integer' && ans >= 0) {
         this.$refs.actionElement.forEach((node, index) => {
           if (index === ans - 1) {
             node.classList.add('active')
@@ -42,8 +47,6 @@ export default {
           }
         })
         this.setAnswer(ans)
-      } else {
-        this.setAnswer(this.answer)
       }
     }
   }
