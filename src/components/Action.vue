@@ -3,35 +3,38 @@
     <div v-if="actionType === 'integer'">
       <button
         class="button"
-        v-for="(action, index) in actions"
-        :key="action.const"
+        v-for="action in actions"
+        :key="curPage + '_' + action.const"
         @click="handleAnswer(action.const)"
         ref="actionElement"
-        :class="index === curAnswer - 1 ? 'active' : ''"
+        :class="action.const === curAnswer ? 'active' : ''"
       >
         {{ action.title }}
       </button>
     </div>
-    <div v-else style="width: 100%">
+    <div v-else-if="actionType === 'number'" style="width: 100%">
       <input type="number" class="answer-input" v-model="answer">
       <span style="display: block; margin: 10px;">mio. kr.</span>
+    </div>
+    <div v-else>
+      result
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 export default {
   name: 'Action',
   computed: {
     ...mapGetters(['actionType', 'actions', 'curAnswer']),
+    ...mapState(['curPage']),
     answer: {
       get () {
         return this.curAnswer
       },
       set (newVal) {
         this.setAnswer(newVal)
-        // this.pp = newVal
       }
     }
   },

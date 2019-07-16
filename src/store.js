@@ -29,24 +29,8 @@ export default new Vuex.Store({
       { left: 'Tilbage', right: 'Næste', class: 'transparent' },
       { left: 'Tilbage', right: 'Næste', class: 'transparent' },
       { left: 'Tilbage', right: 'Næste', class: 'transparent' },
-      { left: 'Tilbage', right: 'Beregn', class: 'transparent' }
-    ],
-    icons: [
-      'icon_scenarios',
-      'icon_city_council',
-      'icon_scenarios',
-      'icon_budget_daycare',
-      'icon_budget_culture_and_freetime',
-      'icon_budget_traffic_and_ways',
-      'icon_budget_nature_and_climate',
-      'icon_budget_health',
-      'icon_budget_cash_and_unemployment_benefits',
-      'icon_budget_town_hall_and_administration',
-      'icon_budget_elderly_and_disabled',
-      'icon_budget_business_and_entrepreneurship',
-      'icon_projects_concert_venue',
-      'icon_projects_dining_houses_in_schools',
-      'icon_city_council'
+      { left: 'Tilbage', right: 'Beregn', class: 'transparent' },
+      { left: 'Start forfra', right: '', class: 'transparent' }
     ]
   },
   mutations: {
@@ -54,6 +38,14 @@ export default new Vuex.Store({
       state.pageInfo = Object.values(data)
       state.pageNames = Object.keys(data)
       if (localStorage.getItem('answers')) state.answers = JSON.parse(localStorage.getItem('answers'))
+      const resultPage = {
+        title: 'Stemmeprocent',
+        description: 'Byråd med højeste stemmeprocent vinder',
+        pagename: 'Stemmeprocent',
+        type: 'result'
+      }
+      state.pageInfo.push(resultPage)
+      state.pageNames.push('city_council')
     },
     SET_ANSWER (state, answer) {
       Vue.set(state.answers, state.curPage, answer)
@@ -101,7 +93,8 @@ export default new Vuex.Store({
         ...page,
         button: state.buttons[state.curPage],
         color: state.colors[state.curPage],
-        pagename: state.pageNames[state.curPage]
+        pagename: state.pageNames[state.curPage],
+        icon: state.pageNames[state.curPage]
       } || state.blankPage
     },
     actionType: state => {
@@ -120,6 +113,7 @@ export default new Vuex.Store({
       } else {
         return ''
       }
-    }
+    },
+    isLastPage: state => state.curPage === state.pageNames.length - 1
   }
 })
