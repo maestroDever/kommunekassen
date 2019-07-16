@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import Axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -98,12 +99,14 @@ export default new Vuex.Store({
           headers: {
             'X-Auth-Token': 'e11e754ffc8c4bad8539bac2ea48b294',
             'Content-Type': 'application/json'
-    }
+          }
         }).then(response => {
         context.commit('SAVE_RESULT', response.data)
         context.commit('TO_NEXT')
       })
-  },
+    },
+    resetAnswers (context) {
+      context.state.answers = []
     }
   },
   getters: {
@@ -134,6 +137,17 @@ export default new Vuex.Store({
         return ''
       }
     },
-    isLastPage: state => state.curPage === state.pageNames.length - 1
+    pageType: state => {
+      const diff = state.pageNames.length - state.curPage
+      if (diff === state.pageNames.length) {
+        return 'first'
+      } else if (diff === 1) {
+        return 'result'
+      } else if (diff === 2) {
+        return 'last'
+      } else {
+        return 'normal'
+      }
+    }
   }
 })

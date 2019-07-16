@@ -17,7 +17,9 @@
       <span style="display: block; margin: 10px;">mio. kr.</span>
     </div>
     <div v-else>
-      result
+      <span v-for="(result, index) in results" :key="index">
+        {{result.total}}
+      </span>
     </div>
   </div>
 </template>
@@ -28,7 +30,7 @@ export default {
   name: 'Action',
   computed: {
     ...mapGetters(['actionType', 'actions', 'curAnswer']),
-    ...mapState(['curPage']),
+    ...mapState(['curPage', 'results']),
     answer: {
       get () {
         return this.curAnswer

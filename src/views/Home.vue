@@ -59,15 +59,24 @@ export default {
     ProgressBar
   },
   computed: {
-    ...mapGetters(['curPageInfo', 'actionType', 'curAnswer'])
+    ...mapGetters(['curPageInfo', 'actionType', 'curAnswer', 'pageType'])
   },
   methods: {
-    ...mapActions(['toNext', 'toPrev']),
+    ...mapActions(['toNext', 'toPrev', 'gotoPage', 'gotoResult', 'resetAnswers']),
     gotoNext () {
-      this.toNext()
+      if (this.pageType === 'last') {
+        this.gotoResult()
+      } else {
+        this.toNext()
+      }
     },
     gotoPrev () {
-      this.toPrev()
+      if (this.pageType === 'result') {
+        this.resetAnswers()
+        this.gotoPage(1)
+      } else {
+        this.toPrev()
+      }
     }
   }
 }
