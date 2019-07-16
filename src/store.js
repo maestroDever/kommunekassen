@@ -8,6 +8,7 @@ export default new Vuex.Store({
     pageNames: [],
     pageInfo: [],
     answers: [],
+    results: [],
     blankPage: {
       title: 'waiting',
       description: 'loading...'
@@ -59,6 +60,10 @@ export default new Vuex.Store({
     },
     GOTO (state, pageNum) {
       state.curPage = pageNum
+    },
+    SAVE_RESULT (state, result) {
+      state.results.push(result)
+      localStorage.setItem('results', JSON.stringify(state.results))
     }
   },
   actions: {
@@ -82,8 +87,23 @@ export default new Vuex.Store({
     },
     setAnswer (context, ans) {
       const pagename = context.state.pageNames[context.state.curPage]
-      const answer = new Map([[pagename, ans]])
+      const answer = new Map([[pagename, ans * 1]])
       context.commit('SET_ANSWER', Object.fromEntries(answer))
+    },
+    gotoResult (context) {
+      const submitData = context.state.answers.reduce((acc, cur) => ({ ...acc, ...cur }), {})
+      Axios.post('https://api.businesslogic.online/execute',
+        submitData,
+        {
+          headers: {
+            'X-Auth-Token': 'e11e754ffc8c4bad8539bac2ea48b294',
+            'Content-Type': 'application/json'
+    }
+        }).then(response => {
+        context.commit('SAVE_RESULT', response.data)
+        context.commit('TO_NEXT')
+      })
+  },
     }
   },
   getters: {
