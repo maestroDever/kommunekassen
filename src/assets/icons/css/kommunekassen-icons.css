@@ -49,23 +49,23 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-graphics_logo_dark:before { content: '\e800'; } /* '' */
-.icon-graphics_logo_light:before { content: '\e804'; } /* '' */
-.icon-icon_budget_culture_and_freetime:before { content: '\e801'; } /* '' */
-.icon-icon_budget_daycare:before { content: '\e802'; } /* '' */
-.icon-icon_budget_health:before { content: '\e803'; } /* '' */
-.icon-icon_budget_cash_and_unemployment_benefits:before { content: '\e805'; } /* '' */
-.icon-icon_budget_elderly_and_disabled:before { content: '\e806'; } /* '' */
-.icon-icon_budget_business_and_entrepreneurship:before { content: '\e807'; } /* '' */
-.icon-icon_projects_0:before { content: '\e808'; } /* '' */
-.icon-icon_scenarios:before { content: '\e809'; } /* '' */
-.icon-icon_budget_schools:before { content: '\e80a'; } /* '' */
-.icon-icon_city_council:before { content: '\e80b'; } /* '' */
-.icon-icon_project_1:before { content: '\e80c'; } /* '' */
-.icon-icon_budget_trafic_and_ways:before { content: '\e80d'; } /* '' */
-.icon-icon_project_2:before { content: '\e80e'; } /* '' */
-.icon-icon_project_3:before { content: '\e80f'; } /* '' */
-.icon-icon_budget_nature_and_climate:before { content: '\e810'; } /* '' */
-.icon-icon_budget_town_hall_and_administration:before { content: '\e811'; } /* '' */
-.icon-icon_projects_4:before { content: '\e812'; } /* '' */
-.icon-icon_projects_5:before { content: '\e813'; } /* '' */
+.icon-graphics_logo_dark:before { content: '\e800' !important; } /* '' */
+.icon-graphics_logo_light:before { content: '\e804' !important; } /* '' */
+.icon-icon_budget_culture_and_freetime:before { content: '\e801' !important; } /* '' */
+.icon-icon_budget_daycare:before { content: '\e802' !important; } /* '' */
+.icon-icon_budget_health:before { content: '\e803' !important; } /* '' */
+.icon-icon_budget_cash_and_unemployment_benefits:before { content: '\e805' !important; } /* '' */
+.icon-icon_budget_elderly_and_disabled:before { content: '\e806' !important; } /* '' */
+.icon-icon_budget_business_and_entrepreneurship:before { content: '\e807' !important; } /* '' */
+.icon-icon_project_0:before { content: '\e808'; } /* '' */
+.icon-icon_scenarios:before { content: '\e809' !important; } /* '' */
+.icon-icon_budget_schools:before { content: '\e80a' !important; } /* '' */
+.icon-icon_city_council:before { content: '\e80b' !important; } /* '' */
+.icon-icon_project_1:before { content: '\e80c' !important; } /* '' */
+.icon-icon_budget_trafic_and_ways:before { content: '\e80d' !important; } /* '' */
+.icon-icon_project_2:before { content: '\e80e' !important; } /* '' */
+.icon-icon_project_3:before { content: '\e80f' !important; } /* '' */
+.icon-icon_budget_nature_and_climate:before { content: '\e810' !important; } /* '' */
+.icon-icon_budget_town_hall_and_administration:before { content: '\e811' !important; } /* '' */
+.icon-icon_project_4:before { content: '\e812' !important; } /* '' */
+.icon-icon_project_5:before { content: '\e813' !important; } /* '' */
