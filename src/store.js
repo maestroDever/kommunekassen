@@ -53,7 +53,7 @@ export default new Vuex.Store({
     SET_DATA (state, data) {
       state.pageInfo = Object.values(data)
       state.pageNames = Object.keys(data)
-      state.answers = JSON.parse(localStorage.getItem('answers'))
+      if (localStorage.getItem('answers')) state.answers = JSON.parse(localStorage.getItem('answers'))
     },
     SET_ANSWER (state, answer) {
       state.answers[state.curPage] = answer
