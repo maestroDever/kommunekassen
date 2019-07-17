@@ -64,11 +64,11 @@ export default {
   methods: {
     ...mapActions(['toNext', 'toPrev', 'gotoPage', 'gotoResult', 'resetAnswers']),
     gotoNext () {
-      if (!this.curAnswer) {
+      if (this.curAnswer === '') {
         this.$notify({
           group: 'notify',
           title: 'Answer is empty',
-          text: 'Please type in the answer...',
+          text: this.actionType === 'integer' ? 'Please choose one...' : 'Please type in the answer...',
           type: 'warn'
         })
         return
