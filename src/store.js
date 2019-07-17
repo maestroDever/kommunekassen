@@ -75,7 +75,6 @@ export default new Vuex.Store({
       const curPage = context.state.curPage
       const curAnswer = context.state.answers[curPage]
       if (!curAnswer) {
-        alert('Nah')
         return
       }
       context.commit('TO_NEXT')

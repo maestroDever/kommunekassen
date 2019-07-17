@@ -64,6 +64,15 @@ export default {
   methods: {
     ...mapActions(['toNext', 'toPrev', 'gotoPage', 'gotoResult', 'resetAnswers']),
     gotoNext () {
+      if (!this.curAnswer) {
+        this.$notify({
+          group: 'notify',
+          title: 'Answer is empty',
+          text: 'Please type in the answer...',
+          type: 'warn'
+        })
+        return
+      }
       if (this.pageType === 'last') {
         this.gotoResult()
       } else {
