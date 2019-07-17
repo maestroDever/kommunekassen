@@ -12,14 +12,23 @@
         {{ action.title }}
       </button>
     </div>
-    <div v-else-if="actionType === 'number'" style="width: 100%">
+    <div v-else-if="actionType === 'number'" class="input-wrapper">
       <input type="number" class="answer-input" v-model="answer">
       <span style="display: block; margin: 10px;">mio. kr.</span>
     </div>
-    <div v-else>
-      <span v-for="(result, index) in results" :key="index">
-        {{result.total}}
-      </span>
+    <div v-else class="result-wrapper">
+      <div
+        class="result-card"
+        v-for="(result, index) in results"
+        :key="index">
+        <div class="result-card--title">Byråd 1</div>
+        <div class="result-card--score">{{result.total}}</div>
+        <div class="result-card--percent">%</div>
+        <div class="result-card--edit">Redigér</div>
+      </div>
+      <div class="result-card">
+        Opret nyt byråd
+      </div>
     </div>
   </div>
 </template>
@@ -64,6 +73,10 @@ export default {
     flex-wrap: wrap;
     margin-top: 20px;
 
+    .input-wrapper, .result-wrapper {
+      width: 100%;
+    }
+
     .answer-input {
       border: none;
       border-bottom: #F0F0F0 solid 3px;
@@ -71,6 +84,50 @@ export default {
       font-size: 36px;
       text-align: center;
       caret-color: #231F20;
+    }
+
+    .result-wrapper {
+      display: flex;
+
+      .result-card {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: #f0f0f0;
+        justify-content: center;
+        padding: 5px;
+
+        &:not(:last-child) {
+          margin-right: 2px;
+        }
+
+        &:first-child {
+          border-bottom: 3px solid #000;
+        }
+
+        & > * {
+          padding: 5px;
+          font-size: 12px;
+        }
+
+        &--title {
+          color: #585858;
+        }
+
+        &--score {
+          color: #000;
+          font-size: 30px
+        }
+
+        &--percent {
+          color: #ABABAB;
+          font-size: 10px;
+        }
+
+        &--edit {
+          color: rgba(35,31,32,0.5);
+        }
+      }
     }
   }
 </style>
