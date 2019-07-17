@@ -105,7 +105,7 @@ export default new Vuex.Store({
       })
     },
     resetAnswers (context) {
-      context.state.answers = []
+      context.state.answers.splice(1, context.state.answers.length - 1)
     }
   },
   getters: {
