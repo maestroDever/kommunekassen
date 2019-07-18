@@ -13,7 +13,7 @@
       </button>
     </div>
     <div v-else-if="actionType === 'number'" class="input-wrapper">
-      <input type="number" class="answer-input" v-model="answer">
+      <input type="number" class="answer-input" v-model="answer" ref="inputField">
       <span style="display: block; margin: 10px;">mio. kr.</span>
     </div>
     <div v-else class="result-wrapper">
@@ -49,6 +49,9 @@ export default {
         this.setAnswer(newVal)
       }
     }
+  },
+  updated () {
+    if (this.$refs.inputField) this.$refs.inputField.focus()
   },
   methods: {
     ...mapActions(['setAnswer', 'gotoPage']),
