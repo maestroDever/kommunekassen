@@ -19,8 +19,9 @@
     <div v-else class="result-wrapper">
       <div
         class="result-card"
-        v-for="(result, index) in results"
-        :key="index">
+        v-for="(result, index) in resultsInOrder"
+        :key="index"
+      >
         <div class="result-card--title">Byråd 1</div>
         <div class="result-card--score">{{result.total}}</div>
         <div class="result-card--percent">%</div>
@@ -38,8 +39,8 @@ import { mapActions, mapGetters, mapState, mapMutations } from 'vuex'
 export default {
   name: 'Action',
   computed: {
-    ...mapGetters(['actionType', 'actions', 'curAnswer']),
-    ...mapState(['curPage', 'results']),
+    ...mapGetters(['actionType', 'actions', 'curAnswer', 'resultsInOrder']),
+    ...mapState(['curPage']),
     answer: {
       get () {
         return this.curAnswer
