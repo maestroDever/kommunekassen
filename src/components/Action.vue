@@ -22,10 +22,10 @@
         v-for="(result, index) in resultsInOrder"
         :key="index"
       >
-        <div class="result-card--title">Byråd 1</div>
+        <div class="result-card--title">Byråd {{index + 1}}</div>
         <div class="result-card--score">{{result.total}}</div>
         <div class="result-card--percent">%</div>
-        <div class="result-card--edit" @click="editAnswers">Redigér</div>
+        <div class="result-card--edit" @click="editAnswers(result.id)">Redigér</div>
       </div>
       <div class="result-card">
         Opret nyt byråd
@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     ...mapActions(['setAnswer', 'gotoPage']),
-    ...mapMutations(['setNew']),
+    ...mapMutations(['selectAnswer']),
     handleAnswer (ans) {
       if (this.actionType === 'integer' && ans >= 0) {
         this.$refs.actionElement.forEach((node, index) => {
@@ -68,8 +68,8 @@ export default {
         this.setAnswer(ans)
       }
     },
-    editAnswers () {
-      this.setNew(false)
+    editAnswers (id) {
+      this.selectAnswer({ flag: false, id: id})
       this.gotoPage(1)
     }
   }

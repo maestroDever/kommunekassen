@@ -9,6 +9,7 @@ export default new Vuex.Store({
     pageNames: [],
     pageInfo: [],
     answers: [],
+    stackAnswers: [],
     results: [],
     blankPage: {
       title: 'waiting',
@@ -64,14 +65,17 @@ export default new Vuex.Store({
       state.curPage = pageNum
     },
     SAVE_RESULT (state, result) {
-      if (!state.isNew) {
-        state.results.splice(state.results.length - 1, 1)
-      }
-      state.results.push(result)
+      state.stackAnswers.push(state.answers)
+      state.results.push({ ...result, id: state.results.length })
       localStorage.setItem('results', JSON.stringify(state.results))
     },
-    setNew (state, val) {
-      state.isNew = val
+    selectAnswer (state, data) {
+      state.isNew = data.flag
+      if (!data.flag) {
+        state.answers = state.stackAnswers[data.id]
+        state.results.splice(data.id, 1)
+        state.stackAnswers.splice(data.id, 1)
+      }
     }
   },
   actions: {
@@ -112,7 +116,7 @@ export default new Vuex.Store({
       })
     },
     resetAnswers (context) {
-      context.commit('setNew', true)
+      context.commit('selectAnswer', { flag: true })
       context.state.answers.splice(1, context.state.answers.length - 1)
     }
   },
