@@ -165,11 +165,12 @@ export default {
       background-color: #D8D8D8;
       margin-top: 10px;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(12, 1fr);
 
       .cell {
         margin-right: 2px;
         background-color: red;
+        cursor: pointer;
       }
 
       .cell:last-child {
