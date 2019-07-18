@@ -14,6 +14,7 @@ export default new Vuex.Store({
       title: 'waiting',
       description: 'loading...'
     },
+    isNew: false,
     curPage: 0,
     colors: [
       '#413B3D', '#130656', '#584EA1', '#3F8DCC', '#00BED2', '#48B85E', '#82C55D', '#FFCB05', '#FEBE2A', '#F8962A', '#F04E45', '#413B3D', '#413B3D', '#413B3D'
@@ -63,8 +64,14 @@ export default new Vuex.Store({
       state.curPage = pageNum
     },
     SAVE_RESULT (state, result) {
+      if (!state.isNew) {
+        state.results.splice(state.results.length - 1, 1)
+      }
       state.results.push(result)
       localStorage.setItem('results', JSON.stringify(state.results))
+    },
+    setNew (state, val) {
+      state.isNew = val
     }
   },
   actions: {
@@ -105,6 +112,7 @@ export default new Vuex.Store({
       })
     },
     resetAnswers (context) {
+      context.commit('setNew', true)
       context.state.answers.splice(1, context.state.answers.length - 1)
     }
   },

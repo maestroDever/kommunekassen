@@ -24,7 +24,7 @@
         <div class="result-card--title">Byråd 1</div>
         <div class="result-card--score">{{result.total}}</div>
         <div class="result-card--percent">%</div>
-        <div class="result-card--edit">Redigér</div>
+        <div class="result-card--edit" @click="editAnswers">Redigér</div>
       </div>
       <div class="result-card">
         Opret nyt byråd
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapState } from 'vuex'
+import { mapActions, mapGetters, mapState, mapMutations } from 'vuex'
 export default {
   name: 'Action',
   computed: {
@@ -50,7 +50,8 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['setAnswer']),
+    ...mapActions(['setAnswer', 'gotoPage']),
+    ...mapMutations(['setNew']),
     handleAnswer (ans) {
       if (this.actionType === 'integer' && ans >= 0) {
         this.$refs.actionElement.forEach((node, index) => {
@@ -62,6 +63,10 @@ export default {
         })
         this.setAnswer(ans)
       }
+    },
+    editAnswers () {
+      this.setNew(false)
+      this.gotoPage(1)
     }
   }
 }
@@ -126,6 +131,7 @@ export default {
 
         &--edit {
           color: rgba(35,31,32,0.5);
+          cursor: pointer;
         }
       }
     }
