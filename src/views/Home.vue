@@ -2,7 +2,7 @@
   <div class="kommunekassen-home">
     <div class="header">
       <div class="header--top">
-        <img src="../assets/images/graphics_logo_light.svg" alt="Logo" class="header--top__logo">
+        <i class="icon-graphics_logo_light header--top__logo"></i>
         <span class="header--top__slogan">
           Kan du styre din by og blive genvalgt?
         </span>
@@ -99,10 +99,6 @@ export default {
     &--top {
       background-color: #231F20;
       height: 265px;
-
-      &__logo {
-        margin-top: 26px;
-      }
 
       &__slogan {
         display: block;

@@ -107,3 +107,10 @@ button:focus {
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
+
+.icon-graphics_logo_light:before {
+  font-size: 160px !important;
+  color: #fff;
+  margin-top: 26px !important;
+  width: auto !important;
+}
