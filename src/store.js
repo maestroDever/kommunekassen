@@ -167,8 +167,10 @@ export default new Vuex.Store({
         return 'normal'
       }
     },
-    resultsInOrder: state => state.results.sort((a, b) => {
-      return (a.total < b.total) ? 1 : -1
-    })
+    resultsInOrder: state => {
+      return [ ...state.results ].sort((a, b) => {
+        return (a.total < b.total) ? 1 : -1
+      })
+    }
   }
 })
