@@ -15,7 +15,7 @@ export default new Vuex.Store({
       title: 'waiting',
       description: 'loading...'
     },
-    isNew: false,
+    isNew: { flag: true, id: 0 },
     curPage: 0,
     colors: [
       '#413B3D', '#130656', '#584EA1', '#3F8DCC', '#00BED2', '#48B85E', '#82C55D', '#FFCB05', '#FEBE2A', '#F8962A', '#F04E45', '#413B3D', '#413B3D', '#413B3D'
@@ -65,17 +65,28 @@ export default new Vuex.Store({
       state.curPage = pageNum
     },
     SAVE_RESULT (state, result) {
-      state.stackAnswers.push(state.answers)
-      state.results.push({ ...result, id: state.results.length })
+      if (state.isNew.flag) {
+        console.log('new answer added')
+        state.stackAnswers.push([...state.answers])
+        state.results.push({ ...result, id: state.results.length })
+      } else {
+        console.log('')
+        state.stackAnswers.splice(state.isNew.id, 0, [...state.answers])
+        state.results.splice(state.isNew.id, 0, { ...result, id: state.isNew.id })
+      }
       localStorage.setItem('results', JSON.stringify(state.results))
     },
     selectAnswer (state, data) {
-      state.isNew = data.flag
+      state.isNew = data
       if (!data.flag) {
         state.answers = state.stackAnswers[data.id]
         state.results.splice(data.id, 1)
         state.stackAnswers.splice(data.id, 1)
       }
+    },
+    resetAnswers (state) {
+      state.isNew = { flag: true }
+      state.answers.splice(1, state.answers.length - 1)
     }
   },
   actions: {
@@ -114,10 +125,6 @@ export default new Vuex.Store({
         context.commit('SAVE_RESULT', response.data)
         context.commit('TO_NEXT')
       })
-    },
-    resetAnswers (context) {
-      context.commit('selectAnswer', { flag: true })
-      context.state.answers.splice(1, context.state.answers.length - 1)
     }
   },
   getters: {

@@ -48,7 +48,7 @@
 
 <script>
 // @ is an alias to /src
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 import Action from '@/components/Action.vue'
 import ProgressBar from '@/components/ProgressBar.vue'
 
@@ -62,7 +62,8 @@ export default {
     ...mapGetters(['curPageInfo', 'actionType', 'curAnswer', 'pageType'])
   },
   methods: {
-    ...mapActions(['toNext', 'toPrev', 'gotoPage', 'gotoResult', 'resetAnswers']),
+    ...mapActions(['toNext', 'toPrev', 'gotoPage', 'gotoResult']),
+    ...mapMutations(['resetAnswers']),
     gotoNext () {
       if (this.curAnswer === '') {
         this.$notify({
