@@ -66,11 +66,9 @@ export default new Vuex.Store({
     },
     SAVE_RESULT (state, result) {
       if (state.isNew.flag) {
-        console.log('new answer added')
         state.stackAnswers.push([...state.answers])
         state.results.push({ ...result, id: state.results.length })
       } else {
-        console.log('')
         state.stackAnswers.splice(state.isNew.id, 0, [...state.answers])
         state.results.splice(state.isNew.id, 0, { ...result, id: state.isNew.id })
       }
