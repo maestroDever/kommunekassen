@@ -164,13 +164,13 @@ export default {
       grid-template-columns: repeat(12, 1fr);
 
       .cell {
-        margin-right: 2px;
+        border-right: 2px solid #fff;
         background-color: red;
         cursor: pointer;
       }
 
       .cell:last-child {
-        margin-right: 0;
+        border-right: 0;
       }
     }
   }
