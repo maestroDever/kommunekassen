@@ -1,9 +1,7 @@
 import Vue from 'vue'
-import Notification from 'vue-notification'
 import App from './App.vue'
 import store from './store'
 
-Vue.use(Notification)
 Vue.config.productionTip = false
 
 new Vue({

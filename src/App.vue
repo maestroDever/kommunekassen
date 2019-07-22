@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <notifications group="notify"/>
     <home />
   </div>
 </template>
