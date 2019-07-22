@@ -20,7 +20,7 @@
       <span class="subtitle">
         {{ curPageInfo.description }}
       </span>
-      <Action ref="action" />
+      <Action ref="action" @enterPressed="gotoNext" />
     </div>
     <div class="footer">
       <div class="footer--buttons">

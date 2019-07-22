@@ -13,7 +13,7 @@
       </button>
     </div>
     <div v-else-if="actionType === 'number'" class="input-wrapper">
-      <input type="number" class="answer-input" v-model="answer" ref="inputField">
+      <input type="number" class="answer-input" v-model="answer" ref="inputField" @keyup.enter="enterHandle">
       <span style="display: block; margin: 10px;">mio. kr.</span>
     </div>
     <div v-else class="result-wrapper">
@@ -71,6 +71,9 @@ export default {
     editAnswers (id) {
       this.selectAnswer({ flag: false, id: id })
       this.gotoPage(1)
+    },
+    enterHandle () {
+      this.$emit('enterPressed')
     }
   }
 }
