@@ -27,7 +27,7 @@
         <div class="result-card--percent">%</div>
         <div class="result-card--edit" @click="editAnswers(result.id)">Redigér</div>
       </div>
-      <div class="result-card" @click="createNew">
+      <div class="result-card" @click="createNew" v-if="results.length < 6">
         Opret nyt byråd
       </div>
     </div>
@@ -40,7 +40,7 @@ export default {
   name: 'Action',
   computed: {
     ...mapGetters(['actionType', 'actions', 'curAnswer', 'resultsInOrder']),
-    ...mapState(['curPage']),
+    ...mapState(['curPage', 'results']),
     answer: {
       get () {
         return this.curAnswer
