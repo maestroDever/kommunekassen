@@ -94,7 +94,7 @@ export default new Vuex.Store({
     toNext (context) {
       const curPage = context.state.curPage
       const curAnswer = context.state.answers[curPage]
-      if (!curAnswer) {
+      if (curAnswer === '' || curAnswer === undefined || curAnswer === null) {
         return
       }
       context.commit('TO_NEXT')
@@ -106,6 +106,7 @@ export default new Vuex.Store({
       context.commit('GOTO', pageNum)
     },
     setAnswer (context, ans) {
+      if (ans === '') return
       const pagename = context.state.pageNames[context.state.curPage]
       const answer = new Map([[pagename, ans * 1]])
       context.commit('SET_ANSWER', Object.fromEntries(answer))
@@ -150,7 +151,9 @@ export default new Vuex.Store({
       if (state.answers.length > state.curPage) {
         return Object.values(state.answers[state.curPage])[0]
       } else {
-        return ''
+        const currentPage = state.pageInfo.length && state.pageInfo[state.curPage]
+        if (currentPage.type === 'number') return 0
+        else if (currentPage.type === 'integer') return currentPage.default || ''
       }
     },
     pageType: state => {

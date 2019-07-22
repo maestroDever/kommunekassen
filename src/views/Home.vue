@@ -62,18 +62,10 @@ export default {
     ...mapGetters(['curPageInfo', 'actionType', 'curAnswer', 'pageType'])
   },
   methods: {
-    ...mapActions(['toNext', 'toPrev', 'gotoPage', 'gotoResult']),
+    ...mapActions(['toNext', 'toPrev', 'gotoPage', 'gotoResult', 'setAnswer']),
     ...mapMutations(['resetAnswers']),
     gotoNext () {
-      if (this.curAnswer === '') {
-        this.$notify({
-          group: 'notify',
-          title: 'Answer is empty',
-          text: this.actionType === 'integer' ? 'Please choose one...' : 'Please type in the answer...',
-          type: 'warn'
-        })
-        return
-      }
+      this.setAnswer(this.curAnswer)
       if (this.pageType === 'last') {
         this.gotoResult()
       } else {

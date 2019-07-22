@@ -69,7 +69,7 @@ export default {
       }
     },
     editAnswers (id) {
-      this.selectAnswer({ flag: false, id: id})
+      this.selectAnswer({ flag: false, id: id })
       this.gotoPage(1)
     }
   }
