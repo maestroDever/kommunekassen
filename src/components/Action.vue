@@ -27,7 +27,7 @@
         <div class="result-card--percent">%</div>
         <div class="result-card--edit" @click="editAnswers(result.id)">Redigér</div>
       </div>
-      <div class="result-card">
+      <div class="result-card" @click="createNew">
         Opret nyt byråd
       </div>
     </div>
@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     ...mapActions(['setAnswer', 'gotoPage']),
-    ...mapMutations(['selectAnswer']),
+    ...mapMutations(['selectAnswer', 'clearAnswers']),
     handleAnswer (ans) {
       if (this.actionType === 'integer' && ans >= 0) {
         this.$refs.actionElement.forEach((node, index) => {
@@ -74,6 +74,10 @@ export default {
     },
     enterHandle () {
       this.$emit('enterPressed')
+    },
+    createNew () {
+      this.clearAnswers()
+      this.gotoPage(1)
     }
   }
 }
@@ -108,6 +112,7 @@ export default {
         background-color: #f0f0f0;
         justify-content: center;
         padding: 5px;
+        cursor: pointer;
 
         &:not(:last-child) {
           margin-right: 2px;
@@ -138,7 +143,6 @@ export default {
 
         &--edit {
           color: rgba(35,31,32,0.5);
-          cursor: pointer;
         }
       }
     }

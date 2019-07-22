@@ -75,7 +75,7 @@ export default {
     gotoPrev () {
       if (this.pageType === 'result') {
         this.resetAnswers()
-        this.gotoPage(1)
+        this.gotoPage(0)
       } else {
         this.toPrev()
       }

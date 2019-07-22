@@ -82,9 +82,17 @@ export default new Vuex.Store({
         state.stackAnswers.splice(data.id, 1)
       }
     },
-    resetAnswers (state) {
+    clearAnswers (state) {
       state.isNew = { flag: true }
       state.answers.splice(1, state.answers.length - 1)
+    },
+    resetAnswers (state) {
+      state.isNew = { flag: true }
+      state.answers = []
+      state.stackAnswers = []
+      state.results = []
+      localStorage.removeItem('answers')
+      localStorage.removeItem('results')
     }
   },
   actions: {
