@@ -66,8 +66,10 @@ export default {
     ...mapMutations(['resetAnswers']),
     gotoNext () {
       this.setAnswer(this.curAnswer)
-      if (this.pageType === 'last') {
-        this.gotoResult()
+      if (this.pageType === 'first') {
+        this.gotoResult(false)
+      } else if (this.pageType === 'last') {
+        this.gotoResult(true)
       } else {
         this.toNext()
       }

@@ -27,7 +27,7 @@
         <div class="result-card--percent">%</div>
         <div class="result-card--edit" @click="editAnswers(result.id)">Redigér</div>
       </div>
-      <div class="result-card" @click="createNew" v-if="results.length < 6">
+      <div class="result-card" style="height: 131px;" @click="createNew" v-if="results.length < 6">
         Opret nyt byråd
       </div>
     </div>

@@ -119,7 +119,8 @@ export default new Vuex.Store({
       const answer = new Map([[pagename, ans * 1]])
       context.commit('SET_ANSWER', Object.fromEntries(answer))
     },
-    gotoResult (context) {
+    gotoResult (context, val) {
+      if (val) {
       const submitData = context.state.answers.reduce((acc, cur) => ({ ...acc, ...cur }), {})
       Axios.post('https://api.businesslogic.online/execute',
         submitData,
@@ -132,6 +133,9 @@ export default new Vuex.Store({
         context.commit('SAVE_RESULT', response.data)
         context.commit('TO_NEXT')
       })
+      } else {
+        context.commit('GOTO', context.state.pageNames.length - 1)
+      }
     }
   },
   getters: {
