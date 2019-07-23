@@ -159,6 +159,7 @@ export default {
       grid-template-columns: repeat(12, 1fr);
 
       .cell {
+        border: none;
         border-right: 2px solid #fff;
         background-color: red;
         cursor: pointer;
