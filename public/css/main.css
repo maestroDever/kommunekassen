@@ -6,7 +6,7 @@ html, body {
 }
 
 #app {
-  width: 566px;
+  width: 100%;
   text-align: center;
 }
 
@@ -31,6 +31,13 @@ html, body {
 
 .button.transparent {
   background-color: transparent;
+}
+
+.button.left.transparent {
+  text-align: left;
+}
+.button.right.transparent {
+  text-align: right;
 }
 
 .button.left {

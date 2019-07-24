@@ -1,6 +1,6 @@
 <template>
   <div class="action">
-    <div v-if="actionType === 'integer'">
+    <div v-if="actionType === 'integer'" class="buttons-wrapper">
       <button
         class="button"
         v-for="action in actions"
@@ -89,7 +89,7 @@ export default {
     flex-wrap: wrap;
     margin-top: 20px;
 
-    .input-wrapper, .result-wrapper {
+    .input-wrapper, .result-wrapper, .buttons-wrapper {
       width: 100%;
     }
 
