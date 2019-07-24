@@ -43,7 +43,7 @@ export default {
     ...mapState(['curPage', 'results']),
     answer: {
       get () {
-        return this.curAnswer
+        return this.curAnswer || ''
       },
       set (newVal) {
         this.setAnswer(newVal)
