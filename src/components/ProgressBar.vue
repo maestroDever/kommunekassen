@@ -6,7 +6,7 @@
         class="cell tooltip"
         v-for="n in totalPageNum"
         :key="n"
-        :style="n <= curPage ? `background-color: ${colors[n]}` : `background-color: ${colors[n]}50`"
+        :style="`background-color: ${color(n)}`"
         @click="gotoPage(n)"
       >
         <span class="tooltiptext">{{ pageInfo[n].title }}</span>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import hexToRgba from 'hex-to-rgba'
 import { mapState, mapActions, mapGetters } from 'vuex'
 
 export default {
@@ -25,7 +26,10 @@ export default {
     ...mapGetters(['pageType', 'totalPageNum'])
   },
   methods: {
-    ...mapActions(['gotoPage'])
+    ...mapActions(['gotoPage']),
+    color (index) {
+      return hexToRgba(this.colors[index], index <= this.curPage ? 1 : 0.2)
+    }
   }
 }
 </script>
