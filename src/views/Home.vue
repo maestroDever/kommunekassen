@@ -89,60 +89,60 @@ export default {
 <style lang="scss">
 .kommunekassen-home {
   display: grid;
-  grid-template-rows: 1fr 300px 1fr;
+  grid-template-rows: 1fr 30rem 1fr;
   .header {
     &--top {
       background-color: #231F20;
-      height: 265px;
+      height: 26.5rem;
 
       &__slogan {
         display: block;
         margin-top: 9px;
         color: rgba(255,255,255,0.5);
-        font-size: 18px;
-        line-height: 25px;
+        font-size: 1.8rem;
+        line-height: 2.5rem;
         text-align: center;
       }
     }
 
     &--bottom {
-      height: 40px;
+      height: 4rem;
       background-color: #413B3D;
 
       &__icon {
         border-radius: 50%;
         background-color: white;
         position: relative;
-        top: -30px;
+        top: -3rem;
         display: inline-block;
       }
     }
   }
 
   .body {
-    margin-top: 60px;
-    margin-right: 25px;
-    margin-left: 25px;
+    margin-top: 6rem;
+    margin-right: 2.5rem;
+    margin-left: 2.5rem;
 
     .title {
       display: block;
       color: #231F20;
-      font-size: 22px;
+      font-size: 2.2rem;
     }
 
     .subtitle {
       display: block;
       color: rgba(0,0,0,0.5);
-      font-size: 16px;
+      font-size: 1.6rem;
     }
   }
 
   .footer {
-    padding: 10px 15px;
+    padding: 1rem 1.5rem;
 
     &--buttons {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(5, 1fr);
       margin: 0 4px;
 
       .right {
@@ -152,9 +152,9 @@ export default {
 
     &--progress-bar {
       width: 100%;
-      height: 20px;
+      height: 2rem;
       background-color: #D8D8D8;
-      margin-top: 10px;
+      margin-top: 1rem;
       display: grid;
       grid-template-columns: repeat(12, 1fr);
 
@@ -167,7 +167,27 @@ export default {
 
       .cell:last-child {
         border-right: 0;
+
+        // .tooltiptext {
+        //   right: 10%;
+        //   left: unset;
+
+        //   &::after {
+        //     right: 2%;
+        //     left: unset;
+        //   }
+        // }
       }
+
+      // .cell:first-child {
+      //   .tooltiptext {
+      //     left: 200%;
+
+      //     &::after {
+      //       left: 10%;
+      //     }
+      //   }
+      // }
     }
   }
 }

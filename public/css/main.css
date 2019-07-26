@@ -3,6 +3,7 @@ html, body {
   margin: 0;
   font-family: "DINNextW01-Bold";
   color: rgba(0,0,0,0.5);
+  font-size: 62.5%;
 }
 
 #app {
@@ -12,12 +13,12 @@ html, body {
 
 
 .button {
-  height: 40px;
-  padding: 10px 35px;
+  height: 4rem;
+  padding: 1rem 3.5rem;
   margin: 4px;
   border-radius: 8px;
   font-family: DINNextW01-Bold;
-  font-size: 14px;
+  font-size: 1.4rem;
   background-color: #F0F0F0;
   color: #231F20;
   border: none;
@@ -85,7 +86,7 @@ button:focus {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 12rem;
   background-color: #fff;
   text-align: center;
   border-radius: 3px;
@@ -94,9 +95,7 @@ button:focus {
   z-index: 1;
   bottom: 120%;
   left: 50%;
-  margin-left: -60px;
-  -webkit-box-shadow: 2px 6px 15px 5px rgba(0,0,0,0.4);
-  -moz-box-shadow: 2px 6px 15px 5px rgba(0,0,0,0.4);
+  margin-left: -6rem;
   box-shadow: 2px 6px 15px 5px rgba(0,0,0,0.4);
 }
 
@@ -105,8 +104,8 @@ button:focus {
   position: absolute;
   top: 100%;
   left: 50%;
-  margin-left: -10px;
-  border-width: 10px;
+  margin-left: -1rem;
+  border-width: 1rem;
   border-style: solid;
   border-color: white transparent transparent transparent;
 }
@@ -115,9 +114,10 @@ button:focus {
   visibility: visible;
 }
 
+/* LOGO */
 .icon-graphics_logo_light:before {
-  font-size: 160px !important;
+  font-size: 16rem !important;
   color: #fff;
-  margin-top: 26px !important;
+  margin-top: 2.6rem !important;
   width: auto !important;
 }
