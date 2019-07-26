@@ -144,11 +144,8 @@ export default {
 
     &--buttons {
       display: flex;
-      // grid-template-columns: repeat(5, 1fr);
-      margin: 0 4px;
 
       .right {
-        // grid-column-start: 5;
         margin-left: auto;
       }
 
@@ -163,7 +160,6 @@ export default {
       background-color: #D8D8D8;
       margin-top: 1rem;
       display: flex;
-      // grid-template-columns: repeat(12, 1fr);
 
       .cell {
         flex: 1;

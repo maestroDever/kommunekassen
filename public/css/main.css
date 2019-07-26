@@ -43,12 +43,10 @@ html, body {
 
 .button.left {
   color: rgba(35,31,32,0.5);
-  padding: 0;
 }
 
 .button.right {
   color: #231F20;
-  padding: 0;
 }
 
 .button.active.right {
