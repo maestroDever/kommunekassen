@@ -23,7 +23,7 @@
         :key="index"
       >
         <div class="result-card--title">Byråd {{index + 1}}</div>
-        <div class="result-card--score">{{result.total}}</div>
+        <div class="result-card--score">{{result.total | floatFilter}}</div>
         <div class="result-card--percent">%</div>
         <div class="result-card--edit" @click="editAnswers(result.id)">Redigér</div>
       </div>
@@ -78,6 +78,11 @@ export default {
     createNew () {
       this.clearAnswers()
       this.gotoPage(1)
+    }
+  },
+  filters: {
+    floatFilter (val) {
+      return parseFloat(val).toFixed(1)
     }
   }
 }
