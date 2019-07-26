@@ -97,8 +97,9 @@ export default new Vuex.Store({
       state.pageInfo.forEach((page, index) => {
         if (page.type !== 'result' && index !== 0) {
           const pagename = state.pageNames[index]
-          const answer = new Map([[pagename, page.default || 0]])
-          Vue.set(state.answers, index, Object.fromEntries(answer))
+          var obj = {}
+          obj[pagename] = page.default || 0
+          Vue.set(state.answers, index, obj)
         }
       })
       // state.answers.splice(1, state.answers.length - 1)
@@ -109,8 +110,9 @@ export default new Vuex.Store({
       state.pageInfo.forEach((page, index) => {
         if (page.type !== 'result') {
           const pagename = state.pageNames[index]
-          const answer = new Map([[pagename, page.default || 0]])
-          Vue.set(state.answers, index, Object.fromEntries(answer))
+          var obj = {}
+          obj[pagename] = page.default || 0
+          Vue.set(state.answers, index, obj)
         }
       })
       state.stackAnswers = []
@@ -146,8 +148,9 @@ export default new Vuex.Store({
     setAnswer (context, ans) {
       if (ans === '') return
       const pagename = context.state.pageNames[context.state.curPage]
-      const answer = new Map([[pagename, ans * 1]])
-      context.commit('SET_ANSWER', Object.fromEntries(answer))
+      var obj = {}
+      obj[pagename] = ans * 1
+      context.commit('SET_ANSWER', obj)
     },
     gotoResult (context, val) {
       if (val) {
