@@ -3,13 +3,14 @@
     <div class="footer--progress-bar" v-if="(pageType == 'result') || (pageType == 'first')"></div>
     <div class="footer--progress-bar" v-else>
       <div
-        class="cell tooltip"
+        class="cell"
         v-for="n in totalPageNum"
         :key="n"
         :style="`background-color: ${color(n)}`"
         @click="gotoPage(n)"
+        v-tooltip="pageInfo[n].title"
       >
-        <span class="tooltiptext">{{ pageInfo[n].title }}</span>
+        <!-- <span class="tooltiptext">{{ pageInfo[n].title }}</span> -->
       </div>
     </div>
   </div>
