@@ -88,8 +88,9 @@ export default {
 
 <style lang="scss">
 .kommunekassen-home {
-  display: grid;
-  grid-template-rows: 1fr 30rem 1fr;
+  display: flex;
+  flex-direction: column;
+  // grid-template-rows: 1fr 30rem 1fr;
   .header {
     &--top {
       background-color: #231F20;
@@ -120,6 +121,7 @@ export default {
   }
 
   .body {
+    flex: 30rem;
     margin-top: 6rem;
     margin-right: 2.5rem;
     margin-left: 2.5rem;
@@ -141,12 +143,17 @@ export default {
     padding: 1rem 1.5rem;
 
     &--buttons {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      display: flex;
+      // grid-template-columns: repeat(5, 1fr);
       margin: 0 4px;
 
       .right {
-        grid-column-start: 5;
+        // grid-column-start: 5;
+        margin-left: auto;
+      }
+
+      .left {
+        margin-right: auto;
       }
     }
 
@@ -155,10 +162,11 @@ export default {
       height: 2rem;
       background-color: #D8D8D8;
       margin-top: 1rem;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
+      display: flex;
+      // grid-template-columns: repeat(12, 1fr);
 
       .cell {
+        flex: 1;
         border: none;
         border-right: 2px solid #fff;
         background-color: red;
