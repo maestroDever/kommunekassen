@@ -211,11 +211,11 @@ button:focus {
 .tooltip[aria-hidden='true'] {
   visibility: hidden;
   opacity: 0;
-  transition: opacity .15s, visibility .15s;
+  transition: opacity .8s, visibility .8s;
 }
 
 .tooltip[aria-hidden='false'] {
   visibility: visible;
   opacity: 1;
-  transition: opacity .15s;
+  transition: opacity 1s;
 }

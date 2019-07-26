@@ -8,7 +8,7 @@
         :key="n"
         :style="`background-color: ${color(n)}`"
         @click="gotoPage(n)"
-        v-tooltip="pageInfo[n].title"
+        v-tooltip.auto-start="pageInfo[n].title"
       >
         <!-- <span class="tooltiptext">{{ pageInfo[n].title }}</span> -->
       </div>
