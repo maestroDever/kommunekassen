@@ -134,7 +134,11 @@ export default new Vuex.Store({
       context.commit('TO_NEXT')
     },
     toPrev (context) {
-      context.commit('TO_PREV')
+      if (context.state.curPage === 1) {
+        context.commit('GOTO', context.state.pageNames.length - 1)
+      } else {
+        context.commit('TO_PREV')
+      }
     },
     gotoPage (context, pageNum) {
       context.commit('GOTO', pageNum)
