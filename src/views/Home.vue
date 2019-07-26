@@ -67,7 +67,7 @@ export default {
     gotoNext () {
       this.setAnswer(this.curAnswer)
       if (this.pageType === 'first') {
-        this.gotoResult(false)
+        this.curAnswer && this.gotoResult(false)
       } else if (this.pageType === 'last') {
         this.gotoResult(true)
       } else {

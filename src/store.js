@@ -39,9 +39,14 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_DATA (state, data) {
+      if (localStorage.getItem('results')) {
+        state.results = JSON.parse(localStorage.getItem('results'))
+      }
+      if (localStorage.getItem('stackAnswers')) {
+        state.stackAnswers = JSON.parse(localStorage.getItem('stackAnswers'))
+      }
       state.pageInfo = Object.values(data)
       state.pageNames = Object.keys(data)
-      if (localStorage.getItem('answers')) state.answers = JSON.parse(localStorage.getItem('answers'))
       const resultPage = {
         title: 'Stemmeprocent',
         description: 'Byråd med højeste stemmeprocent vinder',
@@ -50,6 +55,10 @@ export default new Vuex.Store({
       }
       state.pageInfo.push(resultPage)
       state.pageNames.push('city_council')
+      if (localStorage.getItem('answers')) {
+        state.answers = JSON.parse(localStorage.getItem('answers'))
+        state.curPage = state.pageInfo.length - 1
+      }
     },
     SET_ANSWER (state, answer) {
       Vue.set(state.answers, state.curPage, answer)
@@ -73,6 +82,7 @@ export default new Vuex.Store({
         state.results.splice(state.isNew.id, 0, { ...result, id: state.isNew.id })
       }
       localStorage.setItem('results', JSON.stringify(state.results))
+      localStorage.setItem('stackAnswers', JSON.stringify(state.stackAnswers))
     },
     selectAnswer (state, data) {
       state.isNew = data
@@ -84,15 +94,30 @@ export default new Vuex.Store({
     },
     clearAnswers (state) {
       state.isNew = { flag: true }
-      state.answers.splice(1, state.answers.length - 1)
+      state.pageInfo.forEach((page, index) => {
+        if (page.type !== 'result' && index !== 0) {
+          const pagename = state.pageNames[index]
+          const answer = new Map([[pagename, page.default || 0]])
+          Vue.set(state.answers, index, Object.fromEntries(answer))
+        }
+      })
+      // state.answers.splice(1, state.answers.length - 1)
+      localStorage.setItem('answers', state.answers)
     },
     resetAnswers (state) {
       state.isNew = { flag: true }
-      state.answers = []
+      state.pageInfo.forEach((page, index) => {
+        if (page.type !== 'result') {
+          const pagename = state.pageNames[index]
+          const answer = new Map([[pagename, page.default || 0]])
+          Vue.set(state.answers, index, Object.fromEntries(answer))
+        }
+      })
       state.stackAnswers = []
       state.results = []
       localStorage.removeItem('answers')
       localStorage.removeItem('results')
+      localStorage.removeItem('stackAnswers')
     }
   },
   actions: {
@@ -105,6 +130,7 @@ export default new Vuex.Store({
       if (curAnswer === '' || curAnswer === undefined || curAnswer === null) {
         return
       }
+      if (curAnswer === 0 && curPage === 0) return
       context.commit('TO_NEXT')
     },
     toPrev (context) {
@@ -121,18 +147,18 @@ export default new Vuex.Store({
     },
     gotoResult (context, val) {
       if (val) {
-      const submitData = context.state.answers.reduce((acc, cur) => ({ ...acc, ...cur }), {})
-      Axios.post('https://api.businesslogic.online/execute',
-        submitData,
-        {
-          headers: {
-            'X-Auth-Token': 'e11e754ffc8c4bad8539bac2ea48b294',
-            'Content-Type': 'application/json'
-          }
-        }).then(response => {
-        context.commit('SAVE_RESULT', response.data)
-        context.commit('TO_NEXT')
-      })
+        const submitData = context.state.answers.reduce((acc, cur) => ({ ...acc, ...cur }), {})
+        Axios.post('https://api.businesslogic.online/execute',
+          submitData,
+          {
+            headers: {
+              'X-Auth-Token': 'e11e754ffc8c4bad8539bac2ea48b294',
+              'Content-Type': 'application/json'
+            }
+          }).then(response => {
+          context.commit('SAVE_RESULT', response.data)
+          context.commit('TO_NEXT')
+        })
       } else {
         context.commit('GOTO', context.state.pageNames.length - 1)
       }
