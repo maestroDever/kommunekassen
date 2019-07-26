@@ -78,6 +78,8 @@ export default new Vuex.Store({
         state.stackAnswers.push([...state.answers])
         state.results.push({ ...result, id: state.results.length })
       } else {
+        state.results.splice(state.isNew.id, 1)
+        state.stackAnswers.splice(state.isNew.id, 1)
         state.stackAnswers.splice(state.isNew.id, 0, [...state.answers])
         state.results.splice(state.isNew.id, 0, { ...result, id: state.isNew.id })
       }
@@ -88,8 +90,6 @@ export default new Vuex.Store({
       state.isNew = data
       if (!data.flag) {
         state.answers = state.stackAnswers[data.id]
-        state.results.splice(data.id, 1)
-        state.stackAnswers.splice(data.id, 1)
       }
     },
     clearAnswers (state) {
