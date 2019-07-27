@@ -99,6 +99,7 @@ export default {
     }
 
     .answer-input {
+      width: 100%;
       border: none;
       border-bottom: #F0F0F0 solid 3px;
       line-height: 2;
