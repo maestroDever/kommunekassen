@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     ...mapActions(['setAnswer', 'gotoPage']),
-    ...mapMutations(['selectAnswer', 'clearAnswers']),
+    ...mapMutations(['selectAnswer', 'createNewCouncil']),
     handleAnswer (ans) {
       if (this.actionType === 'integer' && ans >= 0) {
         this.$refs.actionElement.forEach((node, index) => {
@@ -76,7 +76,7 @@ export default {
       this.$emit('enterPressed')
     },
     createNew () {
-      this.clearAnswers()
+      this.createNewCouncil()
       this.gotoPage(1)
     }
   },
