@@ -13,7 +13,7 @@
       </button>
     </div>
     <div v-else-if="actionType === 'number'" class="input-wrapper">
-      <input type="number" class="answer-input" v-model="answer" ref="inputField" @keyup.enter="enterHandle">
+      <input type="number" min="0" max="999999" class="answer-input" v-model="answer" ref="inputField" @keyup.enter="keyHandle">
       <span style="display: block; margin: 1rem;">mio. kr.</span>
     </div>
     <div v-else class="result-wrapper">
@@ -72,7 +72,24 @@ export default {
       this.selectAnswer({ flag: false, id: id })
       this.gotoPage(1)
     },
-    enterHandle () {
+    keyHandle (e) {
+      // console.log(e)
+      // let newValue = e.target.value + e.key
+      // console.log('newValue', newValue)
+      // if (isNaN(newValue) && // It is not a number nor a control key?
+      //   e.which !== 8 && // backspace
+      //   e.which !== 17 && // ctrl
+      //   e.which !== 13 && // Enter
+      //   e.which !== 46 && // Period
+      //   (newValue[0] !== '-' || // minus
+      //   (newValue[0] === '-' && isNaN(newValue.slice(1)))) // It is not a negative value?
+      // ) {
+      //   console.log('prevented')
+      //   e.preventDefault() // Then don't write it!
+      //   this.answer = 0
+      // } else if (e.key === 'Enter') {
+      //   this.$emit('enterPressed')
+      // }
       this.$emit('enterPressed')
     },
     createNew () {
