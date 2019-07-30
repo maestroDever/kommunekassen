@@ -220,7 +220,7 @@ export default new Vuex.Store({
     },
     resultsInOrder: state => {
       return [ ...state.results ].sort((a, b) => {
-        return (a.total < b.total) ? 1 : -1
+        return (a.total <= b.total) ? 1 : -1
       })
     },
     totalPageNum: state => state.colors.length - 2
