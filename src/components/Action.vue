@@ -162,6 +162,7 @@ export default {
         &--percent {
           color: #ABABAB;
           font-size: 1rem;
+          margin-top: -1.5rem;
         }
 
         &--edit {
