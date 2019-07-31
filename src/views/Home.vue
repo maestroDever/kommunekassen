@@ -9,7 +9,8 @@
       </div>
       <div class="header--bottom" :style="`background-color: ${curPageInfo.color}`">
         <div class="header--bottom__icon">
-          <i class="icon-icon_project_0" :class="actionType === 'integer' ? `icon-icon_project_${curAnswer}` : `icon-icon_${curPageInfo.icon}`"></i>
+          <i v-if="pageType === 'first'" class="icon-icon_scenarios"></i>
+          <i v-else class="icon-icon_project_0" :class="actionType === 'integer' ? `icon-icon_project_${curAnswer}` : `icon-icon_${curPageInfo.icon}`"></i>
         </div>
       </div>
     </div>
