@@ -127,6 +127,7 @@ export default {
 
     .result-wrapper {
       display: flex;
+      flex-wrap: wrap;
 
       .result-card {
         flex-grow: 1;
@@ -137,6 +138,7 @@ export default {
         padding: 5px;
         cursor: pointer;
         font-size: 1.4em;
+        margin-top: 2px;
 
         &:not(:last-child) {
           margin-right: 2px;
