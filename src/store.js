@@ -142,6 +142,7 @@ export default new Vuex.Store({
     },
     toPrev (context) {
       if (context.state.curPage === 1) {
+        context.state.isNew.flag && context.state.results.splice(-1, 1)
         context.commit('GOTO', context.state.pageNames.length - 1)
       } else {
         context.commit('TO_PREV')
