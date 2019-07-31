@@ -91,57 +91,57 @@ export default {
 .kommunekassen-home {
   display: flex;
   flex-direction: column;
-  // grid-template-rows: 1fr 30rem 1fr;
+  // grid-template-rows: 1fr 30em 1fr;
   .header {
     &--top {
       background-color: #231F20;
-      height: 26.5rem;
+      height: 26.5em;
 
       &__slogan {
         display: block;
         margin-top: 9px;
         color: rgba(255,255,255,0.5);
-        font-size: 1.8rem;
-        line-height: 2.5rem;
+        font-size: 1.8em;
+        line-height: 2.5em;
         text-align: center;
       }
     }
 
     &--bottom {
-      height: 4rem;
+      height: 4em;
       background-color: #413B3D;
 
       &__icon {
         border-radius: 50%;
         background-color: white;
         position: relative;
-        top: -3rem;
+        top: -3em;
         display: inline-block;
       }
     }
   }
 
   .body {
-    flex: 30rem;
-    margin-top: 6rem;
-    margin-right: 2.5rem;
-    margin-left: 2.5rem;
+    flex: 30em;
+    margin-top: 6em;
+    margin-right: 2.5em;
+    margin-left: 2.5em;
 
     .title {
       display: block;
       color: #231F20;
-      font-size: 2.2rem;
+      font-size: 2.2em;
     }
 
     .subtitle {
       display: block;
       color: rgba(0,0,0,0.5);
-      font-size: 1.6rem;
+      font-size: 1.6em;
     }
   }
 
   .footer {
-    padding: 1rem 1.5rem;
+    padding: 1em 1.5em;
 
     &--buttons {
       display: flex;
@@ -157,9 +157,9 @@ export default {
 
     &--progress-bar {
       width: 100%;
-      height: 2rem;
+      height: 2em;
       background-color: #D8D8D8;
-      margin-top: 1rem;
+      margin-top: 1em;
       display: flex;
 
       .cell {

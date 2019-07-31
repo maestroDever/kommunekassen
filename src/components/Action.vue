@@ -14,7 +14,7 @@
     </div>
     <div v-else-if="actionType === 'number'" class="input-wrapper">
       <input type="number" min="0" max="999999" class="answer-input" v-model="answer" ref="inputField" @keyup.enter="keyHandle">
-      <span style="display: block; margin: 1rem;">mio. kr.</span>
+      <span style="display: block; margin: 1em; font-size: 1.4em;">mio. kr.</span>
     </div>
     <div v-else class="result-wrapper">
       <div
@@ -27,7 +27,7 @@
         <div class="result-card--percent">%</div>
         <div class="result-card--edit" @click="editAnswers(result.id)">Redigér</div>
       </div>
-      <div class="result-card" style="height: 13rem;" @click="createNew" v-if="results.length < 6">
+      <div class="result-card" style="height: 10em;" @click="createNew" v-if="results.length < 6">
         Opret nyt byråd
       </div>
     </div>
@@ -109,7 +109,7 @@ export default {
   .action {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 2rem;
+    margin-top: 2em;
 
     .input-wrapper, .result-wrapper, .buttons-wrapper {
       width: 100%;
@@ -120,7 +120,7 @@ export default {
       border: none;
       border-bottom: #F0F0F0 solid 3px;
       line-height: 2;
-      font-size: 3.6rem;
+      font-size: 3.6em;
       text-align: center;
       caret-color: #231F20;
     }
@@ -136,7 +136,7 @@ export default {
         justify-content: center;
         padding: 5px;
         cursor: pointer;
-        font-size: 1.4rem;
+        font-size: 1.4em;
 
         &:not(:last-child) {
           margin-right: 2px;
@@ -156,13 +156,13 @@ export default {
 
         &--score {
           color: #000;
-          font-size: 3rem;
+          font-size: 2.2em;
         }
 
         &--percent {
           color: #ABABAB;
-          font-size: 1rem;
-          margin-top: -1.5rem;
+          font-size: .8em;
+          margin-top: -1.5em;
         }
 
         &--edit {

@@ -34,11 +34,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-color: #fff;
-  font-size: 1.4rem;
+  // font-size: 1.4em;
+  font-size: 62.5%;
   width: 100%;
 }
 
  [class^="icon-"]:before, [class*=" icon-"]:before {
-   font-size: 12.5rem;
+   font-size: 12.5em;
  }
 </style>
