@@ -27,7 +27,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import url(./assets/icons/css/kommunekassen-icons.css);
+@import './assets/css/main.scss';
+@import './assets/icons/css/kommunekassen-icons.css';
 #app {
   font-family: 'DINNextW01-Bold';
   -webkit-font-smoothing: antialiased;

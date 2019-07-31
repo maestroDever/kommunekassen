@@ -1,0 +1,194 @@
+@font-face {font-family: "DINNextW01-Bold";
+  src: url("//db.onlinewebfonts.com/t/78c77b16334d415ac17d5a812345a0a1.eot");
+  src: url("//db.onlinewebfonts.com/t/78c77b16334d415ac17d5a812345a0a1.eot?#iefix") format("embedded-opentype"),
+  url("//db.onlinewebfonts.com/t/78c77b16334d415ac17d5a812345a0a1.woff2") format("woff2"),
+  url("//db.onlinewebfonts.com/t/78c77b16334d415ac17d5a812345a0a1.woff") format("woff"),
+  url("//db.onlinewebfonts.com/t/78c77b16334d415ac17d5a812345a0a1.ttf") format("truetype"),
+  url("//db.onlinewebfonts.com/t/78c77b16334d415ac17d5a812345a0a1.svg#DINNextW01-Bold") format("svg");
+}
+
+vue-kommunekassen {
+  padding: 0;
+  margin: 0;
+  font-family: "DINNextW01-Bold";
+  color: rgba(0,0,0,0.5);
+  
+  #app {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .button {
+    height: 3em;
+    padding: .7em 2.5em;
+    margin: 4px;
+    border-radius: 8px;
+    font-family: DINNextW01-Bold;
+    font-size: 1.4em;
+    background-color: #F0F0F0;
+    color: #231F20;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .button.active {
+    background-color: #231F20;
+    color: #fff;
+  }
+  
+  .button.transparent {
+    background-color: transparent;
+  }
+  
+  .button.left.transparent {
+    text-align: left;
+  }
+  
+  .button.right.transparent {
+    text-align: right;
+  }
+  
+  .button.left {
+    color: rgba(35,31,32,0.5);
+  }
+  
+  .button.right {
+    color: #231F20;
+  }
+  
+  .button.active.right {
+    color: white;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* remove input[type=number] spin buttons */
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+  }
+  
+  
+  input[type=number] {
+    -moz-appearance:textfield;
+  }
+  
+  /* remove outline on chrome */
+  input:focus,
+  button:focus {
+    outline: none;
+  }
+  
+  /* LOGO */
+  .icon-graphics_logo_light:before {
+    font-size: 16em !important;
+    color: #fff;
+    margin-top: 26px !important;
+    width: auto !important;
+  }
+  
+}
+
+
+/* V-Tooltip */
+
+.tooltip {
+  display: block !important;
+  z-index: 10000;
+  font-family: "DINNextW01-Bold";
+  
+  & .tooltip-inner {
+    background: #fff;
+    color: #000;
+    border-radius: 5px;
+    border-color: #fff;
+    padding: 5px 10px 4px;
+    box-shadow: 2px 6px 15px 5px rgba(0,0,0,0.4);
+    border: none;
+  }
+  
+  & .tooltip-arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    margin: 5px;
+    border-color: #fff;
+  }
+  
+  &[x-placement^="top"] {
+    margin-bottom: 5px;
+  }
+  
+  &[x-placement^="top"] .tooltip-arrow {
+    border-width: 5px 5px 0 5px;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    bottom: -5px;
+    left: calc(50% - 5px);
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  &[x-placement^="bottom"] {
+    margin-top: 5px;
+  }
+  
+  &[x-placement^="bottom"] .tooltip-arrow {
+    border-width: 0 5px 5px 5px;
+    border-left-color: transparent !important;
+    border-right-color: transparent !important;
+    border-top-color: transparent !important;
+    top: -5px;
+    left: calc(50% - 5px);
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  &[x-placement^="right"] {
+    margin-left: 5px;
+  }
+  
+  &[x-placement^="right"] .tooltip-arrow {
+    border-width: 5px 5px 5px 0;
+    border-left-color: transparent !important;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+    left: -5px;
+    top: calc(50% - 5px);
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  &[x-placement^="left"] {
+    margin-right: 5px;
+  }
+  
+  &[x-placement^="left"] .tooltip-arrow {
+    border-width: 5px 0 5px 5px;
+    border-top-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    right: -5px;
+    top: calc(50% - 5px);
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  &[aria-hidden='true'] {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .8s, visibility .8s;
+  }
+  
+  &[aria-hidden='false'] {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1s;
+  }
+}
+
