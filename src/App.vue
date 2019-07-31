@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <home />
+    <home :token="token" />
   </div>
 </template>
 
@@ -11,9 +11,10 @@ import { mapActions } from 'vuex'
 
 export default {
   components: { Home },
+  props: ['token'],
   mounted () {
     Axios.get('https://api.businesslogic.online/describe', {
-      headers: { 'X-Auth-Token': 'e11e754ffc8c4bad8539bac2ea48b294' }
+      headers: { 'X-Auth-Token': this.token }
     })
       .then(response => {
         const pageInfo = response.data.expected_input.properties

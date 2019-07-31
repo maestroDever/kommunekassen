@@ -17,4 +17,6 @@ Vue.config.productionTip = false
 // }).$mount('#app')
 
 App.store = store
-Vue.customElement('vue-kommunekassen', App)
+Vue.customElement('vue-kommunekassen', App, {
+  props: ['token']
+})

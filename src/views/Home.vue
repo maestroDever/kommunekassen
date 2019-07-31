@@ -55,6 +55,7 @@ import ProgressBar from '@/components/ProgressBar.vue'
 
 export default {
   name: 'home',
+  props: ['token'],
   components: {
     Action,
     ProgressBar
@@ -68,9 +69,9 @@ export default {
     gotoNext () {
       this.setAnswer(this.curAnswer)
       if (this.pageType === 'first') {
-        this.curAnswer && this.gotoResult(false)
+        this.curAnswer && this.gotoResult({ flag: false, token: this.token })
       } else if (this.pageType === 'last') {
-        this.gotoResult(true)
+        this.gotoResult({ flag: true, token: this.token })
       } else {
         this.toNext()
       }

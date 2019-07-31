@@ -157,14 +157,14 @@ export default new Vuex.Store({
       obj[pagename] = ans * 1
       context.commit('SET_ANSWER', obj)
     },
-    gotoResult (context, val) {
-      if (val) {
+    gotoResult (context, data) {
+      if (data.flag) {
         const submitData = context.state.answers.reduce((acc, cur) => ({ ...acc, ...cur }), {})
         Axios.post('https://api.businesslogic.online/execute',
           submitData,
           {
             headers: {
-              'X-Auth-Token': 'e11e754ffc8c4bad8539bac2ea48b294',
+              'X-Auth-Token': data.token,
               'Content-Type': 'application/json'
             }
           }).then(response => {
