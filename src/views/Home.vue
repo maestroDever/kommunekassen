@@ -33,6 +33,7 @@
         >
           {{ curPageInfo.button.left }}
         </button>
+        <button class="button transparent middle">Byråd {{ currentCouncil }}</button>
         <button
           class="button right"
           :class="curPageInfo.button.class"
@@ -49,7 +50,7 @@
 
 <script>
 // @ is an alias to /src
-import { mapGetters, mapActions, mapMutations } from 'vuex'
+import { mapGetters, mapActions, mapMutations, mapState } from 'vuex'
 import Action from '@/components/Action.vue'
 import ProgressBar from '@/components/ProgressBar.vue'
 
@@ -61,7 +62,11 @@ export default {
     ProgressBar
   },
   computed: {
-    ...mapGetters(['curPageInfo', 'actionType', 'curAnswer', 'pageType'])
+    ...mapGetters(['curPageInfo', 'actionType', 'curAnswer', 'pageType']),
+    ...mapState(['isNew', 'results']),
+    currentCouncil () {
+      return this.isNew.flag ? this.results.length : this.isNew.id + 1
+    }
   },
   methods: {
     ...mapActions(['toNext', 'toPrev', 'gotoPage', 'gotoResult', 'setAnswer']),
@@ -151,6 +156,11 @@ export default {
         margin-left: auto;
       }
 
+      .middle {
+        font-size: 1.2em;
+        color: rgba(35,31,32,0.7);
+      }
+
       .left {
         margin-right: auto;
       }
@@ -173,27 +183,8 @@ export default {
 
       .cell:last-child {
         border-right: 0;
-
-        // .tooltiptext {
-        //   right: 10%;
-        //   left: unset;
-
-        //   &::after {
-        //     right: 2%;
-        //     left: unset;
-        //   }
-        // }
       }
 
-      // .cell:first-child {
-      //   .tooltiptext {
-      //     left: 200%;
-
-      //     &::after {
-      //       left: 10%;
-      //     }
-      //   }
-      // }
     }
   }
 }
