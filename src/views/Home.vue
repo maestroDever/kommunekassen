@@ -33,7 +33,12 @@
         >
           {{ curPageInfo.button.left }}
         </button>
-        <button class="button transparent middle">Byråd {{ currentCouncil }}</button>
+        <button
+          class="button transparent middle"
+          v-show="pageType === 'normal' || pageType === 'last'"
+        >
+          Byråd {{ currentCouncil }}
+        </button>
         <button
           class="button right"
           :class="curPageInfo.button.class"
