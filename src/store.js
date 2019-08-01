@@ -74,6 +74,14 @@ export default new Vuex.Store({
     GOTO (state, pageNum) {
       state.curPage = pageNum
     },
+    REMOVE_LAST (state) {
+      state.results.splice(-1, 1)
+      state.stackAnswers.splice(-1, 1)
+      state.answers.splice(1, state.answers.length - 1)
+      localStorage.setItem('results', JSON.stringify(state.results))
+      localStorage.setItem('answers', JSON.stringify(state.answers))
+      localStorage.setItem('stackAnswers', JSON.stringify(state.stackAnswers))
+    },
     SAVE_RESULT (state, result) {
       if (state.isNew.flag) {
         state.stackAnswers.push([...state.answers])
@@ -142,7 +150,9 @@ export default new Vuex.Store({
     },
     toPrev (context) {
       if (context.state.curPage === 1) {
-        context.state.isNew.flag && context.state.results.splice(-1, 1)
+        if (context.state.isNew.flag) {
+          context.commit('REMOVE_LAST')
+        }
         context.commit('GOTO', context.state.pageNames.length - 1)
       } else {
         context.commit('TO_PREV')
