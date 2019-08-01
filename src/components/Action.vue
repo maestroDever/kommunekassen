@@ -13,7 +13,7 @@
       </button>
     </div>
     <div v-else-if="actionType === 'number'" class="input-wrapper">
-      <input type="number" min="0" max="999999" class="answer-input" v-model="answer" ref="inputField" @keyup.enter="keyHandle">
+      <input type="number" class="answer-input" v-model="answer" ref="inputField" @keyup.enter="keyHandle">
       <span style="display: block; margin: 1em; font-size: 1.4em;">mio. kr.</span>
     </div>
     <div v-else class="result-wrapper">
@@ -123,6 +123,7 @@ export default {
       font-size: 3.6em;
       text-align: center;
       caret-color: #231F20;
+      box-sizing: border-box;
     }
 
     .result-wrapper {
