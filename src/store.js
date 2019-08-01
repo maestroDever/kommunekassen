@@ -59,9 +59,11 @@ export default new Vuex.Store({
         state.answers = JSON.parse(localStorage.getItem('answers'))
         state.curPage = state.pageInfo.length - 1
       }
+      state.isNew = { flag: true, id: state.stackAnswers.length }
     },
     SET_ANSWER (state, answer) {
       Vue.set(state.answers, state.curPage, answer)
+      if (state.curPage !== 0) { state.stackAnswers.splice(state.isNew.id, 1, [...state.answers]) } // update current answer in stackAnswers
       localStorage.setItem('answers', JSON.stringify(state.answers))
       localStorage.setItem('stackAnswers', JSON.stringify(state.stackAnswers))
     },
@@ -83,15 +85,12 @@ export default new Vuex.Store({
       localStorage.setItem('stackAnswers', JSON.stringify(state.stackAnswers))
     },
     SAVE_RESULT (state, result) {
-      if (state.isNew.flag) {
-        state.stackAnswers.push([...state.answers])
-        state.results.splice(state.results.length - 1, 1, { ...result, id: state.results.length - 1 })
-      } else {
-        state.results.splice(state.isNew.id, 1)
-        state.stackAnswers.splice(state.isNew.id, 1)
-        state.stackAnswers.splice(state.isNew.id, 0, [...state.answers])
-        state.results.splice(state.isNew.id, 0, { ...result, id: state.isNew.id })
-      }
+      // if (state.isNew.flag) {
+      //   state.results.splice(state.results.length - 1, 1, { ...result, id: state.results.length - 1 }) // replace the last council's result
+      // } else {
+      state.results.splice(state.isNew.id, 1, { ...result, id: state.isNew.id }) // update current council's result
+      state.stackAnswers.splice(state.isNew.id, 1, [...state.answers]) // update current council's answers
+      // }
       localStorage.setItem('results', JSON.stringify(state.results))
       localStorage.setItem('stackAnswers', JSON.stringify(state.stackAnswers))
     },
@@ -102,7 +101,7 @@ export default new Vuex.Store({
       }
     },
     createNewCouncil (state) {
-      state.isNew = { flag: true }
+      state.isNew = { flag: true, id: state.stackAnswers.length }
       state.pageInfo.forEach((page, index) => {
         if (page.type !== 'result' && index !== 0) {
           const pagename = state.pageNames[index]
@@ -111,15 +110,14 @@ export default new Vuex.Store({
           Vue.set(state.answers, index, obj)
         }
       })
-      state.results.push({ id: state.results.length, total: 0 })
-      state.stackAnswers.push(state.answers)
-      // state.answers.splice(1, state.answers.length - 1)
+      state.results.push({ id: state.results.length, total: 0 }) // add new council result
+      state.stackAnswers.splice(state.isNew.id, 1, [...state.answers]) // add new council's empty answer
       localStorage.setItem('results', JSON.stringify(state.results))
       localStorage.setItem('answers', JSON.stringify(state.answers))
       localStorage.setItem('stackAnswers', JSON.stringify(state.stackAnswers))
     },
     resetAnswers (state) {
-      state.isNew = { flag: true }
+      state.isNew = { flag: true, id: 0 }
       state.pageInfo.forEach((page, index) => {
         if (page.type !== 'result') {
           const pagename = state.pageNames[index]
