@@ -2,6 +2,7 @@
 
 ## Dev Server 
 The development server is running on https://kommunekassen.surge.sh
+Also on https://kommunekassen.netlify.com
 
 ## Project setup
 ```
