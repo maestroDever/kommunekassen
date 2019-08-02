@@ -13,7 +13,7 @@ vue-kommunekassen {
   font-family: "DINNextW01-Bold";
   color: rgba(0,0,0,0.5);
   
-  #app {
+  #kommunekassen-app {
     width: 100%;
     text-align: center;
   }
@@ -97,7 +97,7 @@ vue-kommunekassen {
 
 /* V-Tooltip */
 
-.tooltip {
+.tooltip.vue-tooltip-theme {
   display: block !important;
   z-index: 10000;
   font-family: "DINNextW01-Bold";

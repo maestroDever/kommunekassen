@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="kommunekassen-app">
     <home :token="token" />
   </div>
 </template>
@@ -30,7 +30,7 @@ export default {
 <style lang="scss">
 @import './assets/css/main.scss';
 @import './assets/icons/css/kommunekassen-icons.css';
-#app {
+#kommunekassen-app {
   font-family: 'DINNextW01-Bold';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -39,9 +39,10 @@ export default {
   // font-size: 1.4em;
   font-size: 62.5%;
   width: 100%;
-}
 
  [class^="icon-"]:before, [class*=" icon-"]:before {
    font-size: 12.5em;
  }
+}
+
 </style>
