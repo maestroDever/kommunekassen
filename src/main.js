@@ -5,6 +5,7 @@ import store from './store'
 import VTooltip from 'v-tooltip'
 import VueCustomElement from 'vue-custom-element'
 import 'document-register-element/build/document-register-element'
+import 'normalize.css'
 
 Vue.use(VTooltip)
 Vue.use(VueCustomElement)
