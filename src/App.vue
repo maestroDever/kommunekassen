@@ -37,11 +37,11 @@ export default {
   text-align: center;
   background-color: #fff;
   // font-size: 1.4em;
-  font-size: 62.5%;
+  font-size: 10px;
   width: 100%;
 
  [class^="icon-"]:before, [class*=" icon-"]:before {
-   font-size: 12.5em;
+   font-size: 125px;
  }
 }
 

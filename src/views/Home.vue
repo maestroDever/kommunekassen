@@ -112,7 +112,7 @@ export default {
         display: block;
         margin-top: 9px;
         color: rgba(255,255,255,0.5);
-        font-size: 1.8em;
+        font-size: 18px;
         line-height: 2.5em;
         text-align: center;
       }
@@ -141,13 +141,13 @@ export default {
     .title {
       display: block;
       color: #231F20;
-      font-size: 2.2em;
+      font-size: 22px;
     }
 
     .subtitle {
       display: block;
       color: rgba(0,0,0,0.5);
-      font-size: 1.6em;
+      font-size: 16px;
     }
   }
 
@@ -162,7 +162,7 @@ export default {
       }
 
       .middle {
-        font-size: 1.2em;
+        font-size: 12px;
         color: rgba(35,31,32,0.7);
       }
 

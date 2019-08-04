@@ -120,7 +120,7 @@ export default {
       border: none;
       border-bottom: #F0F0F0 solid 3px;
       line-height: 2;
-      font-size: 3.6em;
+      font-size: 36px;
       text-align: center;
       caret-color: #231F20;
       box-sizing: border-box;
@@ -138,7 +138,7 @@ export default {
         justify-content: center;
         padding: 5px;
         cursor: pointer;
-        font-size: 1.4em;
+        font-size: 14px;
         margin-top: 2px;
 
         &:not(:last-child) {
@@ -159,12 +159,12 @@ export default {
 
         &--score {
           color: #000;
-          font-size: 2.2em;
+          font-size: 22px;
         }
 
         &--percent {
           color: #ABABAB;
-          font-size: .8em;
+          font-size: 8px;
           margin-top: -1.5em;
         }
 

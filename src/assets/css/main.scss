@@ -69,7 +69,7 @@ kommunekassen-app {
   /* remove input[type=number] spin buttons */
   input[type=number]::-webkit-inner-spin-button, 
   input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
+    -webkit-appearance: none;
     margin: 0; 
   }
   
@@ -86,7 +86,7 @@ kommunekassen-app {
   
   /* LOGO */
   .icon-graphics_logo_light:before {
-    font-size: 16em !important;
+    font-size: 160px !important;
     color: #fff;
     margin-top: 26px !important;
     width: auto !important;
