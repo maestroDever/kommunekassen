@@ -28,9 +28,18 @@ module.exports = {
     }
     config.optimization.delete('splitChunks')
 
-    // config.plugins
-    //   .delete('html')
-    //   .delete('prefetch')
-    //   .delete('preload')
+    const fontsRule = config.module.rule('fonts')
+
+    fontsRule.uses.clear()
+
+    config.module
+      .rule('fonts')
+      .test(/\.(ttf|otf|eot|woff|woff2|svg)$/)
+      .use('base64-inline-loader')
+      .loader('base64-inline-loader')
+      .options({
+        name: './src/assets/icons/font/[name].[ext]'
+      })
+      .end()
   }
 }
