@@ -32,6 +32,9 @@ module.exports = {
 
     fontsRule.uses.clear()
 
+    const svgRule = config.module.rule('svg')
+    if (svgRule) svgRule.uses.clear()
+
     config.module
       .rule('fonts')
       .test(/\.(ttf|otf|eot|woff|woff2|svg)$/)
@@ -41,9 +44,6 @@ module.exports = {
         name: './src/assets/icons/font/[name].[ext]'
       })
       .end()
-
-    const svgRule = config.module.rule('svg')
-    if (svgRule) svgRule.uses.clear()
 
     // config.module
     //   .rule('svg')
