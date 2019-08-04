@@ -41,5 +41,18 @@ module.exports = {
         name: './src/assets/icons/font/[name].[ext]'
       })
       .end()
+
+    const svgRule = config.module.rule('svg')
+    if (svgRule) svgRule.uses.clear()
+
+    config.module
+      .rule('svg')
+      .test(/\.(svg)$/)
+      .use('svg-inline-loader')
+      .loader('svg-inline-loader')
+      .options({
+        name: './src/assets/icons/font/[name].[ext]'
+      })
+      .end()
   }
 }
