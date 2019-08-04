@@ -21,7 +21,7 @@
       <span class="kommunekassen-body--subtitle">
         {{ curPageInfo.description }}
       </span>
-      <Action ref="action" @enterPressed="gotoNext" />
+      <Action ref="action" :token="token" @enterPressed="gotoNext" />
     </div>
     <div class="kommunekassen-footer">
       <div class="kommunekassen-footer--buttons">
@@ -61,7 +61,12 @@ import ProgressBar from '@/components/ProgressBar.vue'
 
 export default {
   name: 'home',
-  props: ['token'],
+  props: {
+    token: {
+      type: String,
+      default: ''
+    }
+  },
   components: {
     Action,
     ProgressBar

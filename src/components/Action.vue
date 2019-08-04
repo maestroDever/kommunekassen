@@ -13,7 +13,7 @@
       </button>
     </div>
     <div v-else-if="actionType === 'number'" class="input-wrapper">
-      <input type="number" class="answer-input" v-model="answer" ref="inputField" @keyup.enter="keyHandle">
+      <input type="number" class="answer-input" v-model="answer" ref="inputField" @keyup.enter="enterHandle" @keydown.esc="escHandle">
       <span style="display: block; margin: 1em; font-size: 1.4em;">mio. kr.</span>
     </div>
     <div v-else class="result-wrapper">
@@ -38,6 +38,12 @@
 import { mapActions, mapGetters, mapState, mapMutations } from 'vuex'
 export default {
   name: 'Action',
+  props: {
+    token: {
+      type: String,
+      default: ''
+    }
+  },
   computed: {
     ...mapGetters(['actionType', 'actions', 'curAnswer', 'resultsInOrder']),
     ...mapState(['curPage', 'results']),
@@ -54,7 +60,7 @@ export default {
     if (this.$refs.inputField) this.$refs.inputField.focus()
   },
   methods: {
-    ...mapActions(['setAnswer', 'gotoPage']),
+    ...mapActions(['setAnswer', 'gotoPage', 'gotoResult']),
     ...mapMutations(['selectAnswer', 'createNewCouncil']),
     handleAnswer (ans) {
       if (this.actionType === 'integer' && ans >= 0) {
@@ -72,25 +78,12 @@ export default {
       this.selectAnswer({ flag: false, id: id })
       this.gotoPage(1)
     },
-    keyHandle (e) {
-      // console.log(e)
-      // let newValue = e.target.value + e.key
-      // console.log('newValue', newValue)
-      // if (isNaN(newValue) && // It is not a number nor a control key?
-      //   e.which !== 8 && // backspace
-      //   e.which !== 17 && // ctrl
-      //   e.which !== 13 && // Enter
-      //   e.which !== 46 && // Period
-      //   (newValue[0] !== '-' || // minus
-      //   (newValue[0] === '-' && isNaN(newValue.slice(1)))) // It is not a negative value?
-      // ) {
-      //   console.log('prevented')
-      //   e.preventDefault() // Then don't write it!
-      //   this.answer = 0
-      // } else if (e.key === 'Enter') {
-      //   this.$emit('enterPressed')
-      // }
+    enterHandle (e) {
       this.$emit('enterPressed')
+    },
+    escHandle (e) {
+      e.preventDefault()
+      this.gotoResult({ flag: true, token: this.token })
     },
     createNew () {
       this.createNewCouncil()

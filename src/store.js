@@ -73,6 +73,9 @@ export default new Vuex.Store({
     TO_PREV (state) {
       state.curPage > 0 && state.curPage--
     },
+    TO_RESULT (state) {
+      state.curPage = state.pageInfo.length - 1
+    },
     GOTO (state, pageNum) {
       state.curPage = pageNum
     },
@@ -178,7 +181,7 @@ export default new Vuex.Store({
             }
           }).then(response => {
           context.commit('SAVE_RESULT', response.data)
-          context.commit('TO_NEXT')
+          context.commit('TO_RESULT')
         })
       } else {
         context.commit('GOTO', context.state.pageNames.length - 1)
