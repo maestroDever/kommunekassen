@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="footer--progress-bar" v-if="(pageType == 'result') || (pageType == 'first')"></div>
-    <div class="footer--progress-bar" v-else>
+    <div class="kommunekassen-footer--progress-bar" v-if="(pageType == 'result') || (pageType == 'first')"></div>
+    <div class="kommunekassen-footer--progress-bar" v-else>
       <div
         class="cell"
         v-for="n in totalPageNum"

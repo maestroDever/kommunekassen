@@ -1,30 +1,30 @@
 <template>
   <div class="kommunekassen-home">
-    <div class="header">
-      <div class="header--top">
-        <i class="icon-graphics_logo_light header--top__logo"></i>
-        <span class="header--top__slogan">
+    <div class="kommunekassen-header">
+      <div class="kommunekassen-header--top">
+        <i class="icon-graphics_logo_light kommunekassen-header--top__logo"></i>
+        <span class="kommunekassen-header--top__slogan">
           Kan du styre din by og blive genvalgt?
         </span>
       </div>
-      <div class="header--bottom" :style="`background-color: ${curPageInfo.color}`">
-        <div class="header--bottom__icon">
+      <div class="kommunekassen-header--bottom" :style="`background-color: ${curPageInfo.color}`">
+        <div class="kommunekassen-header--bottom__icon">
           <i v-if="pageType === 'first'" class="icon-icon_scenarios"></i>
           <i v-else class="icon-icon_project_0" :class="actionType === 'integer' ? `icon-icon_project_${curAnswer}` : `icon-icon_${curPageInfo.icon}`"></i>
         </div>
       </div>
     </div>
-    <div class="body">
-      <span class="title">
+    <div class="kommunekassen-body">
+      <span class="kommunekassen-body--title">
         {{ curPageInfo.title }}
       </span>
-      <span class="subtitle">
+      <span class="kommunekassen-body--subtitle">
         {{ curPageInfo.description }}
       </span>
       <Action ref="action" @enterPressed="gotoNext" />
     </div>
-    <div class="footer">
-      <div class="footer--buttons">
+    <div class="kommunekassen-footer">
+      <div class="kommunekassen-footer--buttons">
         <button
           class="button left"
           :class="curPageInfo.button.class"
@@ -103,7 +103,9 @@ export default {
   display: flex;
   flex-direction: column;
   // grid-template-rows: 1fr 30em 1fr;
-  .header {
+  .kommunekassen-header {
+    display: block;
+
     &--top {
       background-color: #231F20;
       height: 26.5em;
@@ -132,26 +134,26 @@ export default {
     }
   }
 
-  .body {
+  .kommunekassen-body {
     flex: 30em;
     margin-top: 6em;
     margin-right: 2.5em;
     margin-left: 2.5em;
 
-    .title {
+    &--title {
       display: block;
       color: #231F20;
       font-size: 22px;
     }
 
-    .subtitle {
+    &--subtitle {
       display: block;
       color: rgba(0,0,0,0.5);
       font-size: 16px;
     }
   }
 
-  .footer {
+  .kommunekassen-footer {
     padding: 1em 1.5em;
 
     &--buttons {
@@ -164,6 +166,7 @@ export default {
       .middle {
         font-size: 12px;
         color: rgba(35,31,32,0.7);
+        cursor: auto;
       }
 
       .left {
