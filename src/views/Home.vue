@@ -109,7 +109,6 @@ export default {
     },
     exitWizard () {
       if (this.pageType === 'normal' || this.pageType === 'last') {
-        console.log('close')
         this.gotoResult({ flag: true, token: this.token })
       }
     }
