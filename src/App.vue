@@ -28,6 +28,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import './assets/css/font.css';
 @import './assets/css/main.scss';
 @import './assets/icons/css/kommunekassen-icons.css';
 #kommunekassen-app {

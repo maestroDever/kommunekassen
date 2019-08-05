@@ -40,19 +40,6 @@ module.exports = {
       .test(/\.(ttf|otf|eot|woff|woff2|svg)$/)
       .use('base64-inline-loader')
       .loader('base64-inline-loader')
-      .options({
-        name: './src/assets/icons/font/[name].[ext]'
-      })
       .end()
-
-    // config.module
-    //   .rule('svg')
-    //   .test(/\.(svg)$/)
-    //   .use('svg-inline-loader')
-    //   .loader('svg-inline-loader')
-    //   .options({
-    //     name: './src/assets/icons/font/[name].[ext]'
-    //   })
-    //   .end()
   }
 }

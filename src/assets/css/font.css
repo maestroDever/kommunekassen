@@ -1,0 +1,8 @@
+@font-face {font-family: "DINNextW01-Bold";
+  src: url("../fonts/DIN-Next-W01-Bold.eot");
+  src: url("../fonts/DIN-Next-W01-Bold.eot#iefix") format("embedded-opentype"),
+  url("../fonts/DIN-Next-W01-Bold.woff2") format("woff2"),
+  url("../fonts/DIN-Next-W01-Bold.woff") format("woff"),
+  url("../fonts/DIN-Next-W01-Bold.ttf") format("truetype"),
+  url("../fonts/DIN-Next-W01-Bold.svg#DINNextW01-Bold") format("svg");
+}
