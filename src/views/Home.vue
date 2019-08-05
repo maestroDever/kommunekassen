@@ -15,6 +15,14 @@
       </div>
     </div>
     <div class="kommunekassen-body">
+      <div class="close-wrapper" v-if="pageType === 'normal' || pageType ==='last'">
+        <span class="close-btn" @click="exitWizard">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+        </span>
+      </div>
       <span class="kommunekassen-body--title">
         {{ curPageInfo.title }}
       </span>
@@ -98,6 +106,12 @@ export default {
       } else {
         this.toPrev()
       }
+    },
+    exitWizard () {
+      if (this.pageType === 'normal' || this.pageType === 'last') {
+        console.log('close')
+        this.gotoResult({ flag: true, token: this.token })
+      }
     }
   }
 }
@@ -155,6 +169,17 @@ export default {
       display: block;
       color: rgba(0,0,0,0.5);
       font-size: 16px;
+    }
+
+    .close-wrapper {
+      position: relative;
+
+      .close-btn {
+        position: absolute;
+        top: -5em;
+        right: 0;
+        cursor: pointer;
+      }
     }
   }
 
