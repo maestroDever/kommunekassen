@@ -126,11 +126,10 @@ export default {
 
     &--top {
       background-color: #231F20;
-      height: 26.5em;
 
       &__slogan {
         display: block;
-        margin-top: 9px;
+        padding-bottom: 2em;
         color: rgba(255,255,255,0.5);
         font-size: 18px;
         line-height: 2.5em;
@@ -153,7 +152,7 @@ export default {
   }
 
   .kommunekassen-body {
-    flex: 30em;
+    flex: 23em;
     margin-top: 6em;
     margin-right: 2.5em;
     margin-left: 2.5em;
@@ -193,7 +192,8 @@ export default {
       }
 
       .middle {
-        font-size: 12px;
+        font-size: 1.2em;
+        padding-top: 1.2em;
         color: rgba(35,31,32,0.7);
         cursor: auto;
       }

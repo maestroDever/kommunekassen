@@ -11,8 +11,8 @@ module.exports = {
       })
     ],
     output: {
-      filename: assetsDir + '/kommunekassen-[name].js',
-      chunkFilename: assetsDir + '/kommunekassen-[name].js'
+      filename: './kommunekassen-[name].js',
+      chunkFilename: './kommunekassen-[name].js'
     }
   },
   chainWebpack: config => {
@@ -21,8 +21,8 @@ module.exports = {
       extractCSSPlugin &&
         extractCSSPlugin.tap(() => [
           {
-            filename: assetsDir + '/kommunekassen-[name].css',
-            chunkFilename: assetsDir + '/kommunekassen-[name].css'
+            filename: './kommunekassen-[name].css',
+            chunkFilename: './kommunekassen-[name].css'
           }
         ])
     }

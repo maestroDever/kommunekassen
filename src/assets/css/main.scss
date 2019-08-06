@@ -13,6 +13,7 @@ kommunekassen-app {
     height: 3em;
     padding: .7em 2.5em;
     margin: 4px;
+    min-width: 6em;
     border-radius: 8px;
     font-family: DINNextW01-Bold;
     font-size: 1.4em;
@@ -77,9 +78,9 @@ kommunekassen-app {
   
   /* LOGO */
   .icon-graphics_logo_light:before {
-    font-size: 160px !important;
+    font-size: 140px !important;
     color: #fff;
-    margin-top: 26px !important;
+    margin-top: 10px !important;
     width: auto !important;
   }
   
